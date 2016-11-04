@@ -4,41 +4,33 @@ use Illuminate\Database\Seeder;
 
 class SeedIdiomas extends Seeder{
 	public function run(){
-		DB::table('Idioma')->insert([
-			'id' => 1,
+		DB::table('Idiomas')->insert([
 			'idioma' => "Espanol",			
 
 		]);
-		DB::table('Idioma')->insert([
-			'id' => 2,
+		DB::table('Idiomas')->insert([
 			'idioma' => "Ingles",			
 
 		]);
-		DB::table('Idioma')->insert([
-			'id' => 3,
+		DB::table('Idiomas')->insert([
 			'idioma' => "Frances",			
 
 		]);
-		DB::table('Idioma')->insert([
-			'id' => 4,
+		DB::table('Idiomas')->insert([
 			'idioma' => "Italiano",			
 
 		]);
-		DB::table('Idioma')->insert([
-			'id' => 5,
+		DB::table('Idiomas')->insert([
 			'idioma' => "Aleman",			
 
 		]);
-		DB::table('Idioma')->insert([
-			'id' => 6,
+		DB::table('Idiomas')->insert([
 			'idioma' => "Japones",			
 		]);
-		DB::table('Idioma')->insert([
-			'id' => 7,
+		DB::table('Idiomas')->insert([
 			'idioma' => "Ruso",			
 		]);
-		DB::table('Idioma')->insert([
-			'id' => 8,
+		DB::table('Idiomas')->insert([
 			'idioma' => "Chino",			
 		]);
 	}
