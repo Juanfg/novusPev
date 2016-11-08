@@ -14,4 +14,14 @@ class Campus extends Model
     {
     	return $this->hasMany(Departamento::class, 'idCampus');
     }
+
+    public function profesores()
+    {
+        return $this->hasMany(Profesor::class, 'campus');
+    }
+
+    public function directores()
+    {
+        return $this->hasMany(Director::class, 'campus');
+    }
 }

@@ -23,15 +23,10 @@ class DatabaseSeeder extends Seeder
         $this->call(SeedDirectores::class);
         $this->call(SeedProfesores::class);
         $this->call(SeedEvaluaciones::class);
-        //$this->call(SeedHorarios::class);
+        $this->call(SeedHorarios::class);
         //$this->call(SeedDirectoresDepartamento::class);
         //$this->call(SeedProfesoresDepartamento::class);
         //$this->call(SeedProfesoresIdioma::class);
         //$this->call(SeedProfesoresAreaInteres::class);
-
-
     }
 }
-
-
-

@@ -14,4 +14,9 @@ class Director extends Model
     {
     	return $this->hasMany(Profesor::class, 'idDirector');
     }
+
+    public function campus()
+    {
+        return $this->belongsTo(Campus::class, 'campus');
+    }
 }

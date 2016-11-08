@@ -14,4 +14,29 @@ class Profesor extends Model
     {
     	return $this->belongsTo(Director::class, 'idDirector');
     }
+
+    public function evaluaciones()
+    {
+        return $this->hasMany(Evaluacion::class, 'idProfesor');
+    }
+
+    public function paisDeOrigen()
+    {
+        return $this->belongsTo(Pais::class, 'idPaisOrigen');
+    }
+
+    public function paisResidencia()
+    {
+        return $this->belongsTo(Pais::class, 'idPaisResidencia');
+    }
+
+    public function campus()
+    {
+        return $this->belongsTo(Campus::class, 'campus');
+    }
+
+    public function horarios()
+    {
+        return $this->hasMany(Horario::class, 'idProfesor');
+    }
 }

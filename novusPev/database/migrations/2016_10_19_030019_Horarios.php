@@ -15,9 +15,11 @@ class Horarios extends Migration
     {
         Schema::create('Horarios', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('idProfesor')->unsigned();
+            $table->foreign('idProfesor')->references('id')->on('Profesores')->onDelete('cascade');
             $table->integer('diaDeSemana');
-            $table->date('horaInicio');
-            $table->date('horaFin');
+            $table->datetime('horaInicio');
+            $table->datetime('horaFin');
             $table->timestamps();
         });
     }
