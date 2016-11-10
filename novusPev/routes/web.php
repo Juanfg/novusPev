@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'auth'], function() {
+
+    Route::get('/home', 'HomeController@index');
+
+    Route::get('/', function () {
+        return view('home');
+    });
+
+    Route::get('logout', function(){
+			Auth::logout();
+			return view('/home');
+	})->name('logout');
+
 });
+
+Auth::routes();
