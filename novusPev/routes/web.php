@@ -13,17 +13,26 @@
 
 Route::group(['middleware' => 'auth'], function() {
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('/home', 'HomeController@index')->name('/home');
 
     Route::get('/', function () {
-        return view('home');
+        return view('/home');
     });
+
+    Route::resource('profesores', 'ProfesorController');
+
+    Route::resource('directores', 'DirectorController');
+
+    Route::resource('campus', 'CampusController');
+
+    Route::resource('paises', 'PaisController');
+
+    Auth::routes();
 
     Route::get('logout', function(){
 			Auth::logout();
-			return view('/home');
+			return redirect()->route('/home');
 	})->name('logout');
-
 });
 
 Auth::routes();
