@@ -26,7 +26,7 @@ class CampusController extends Controller
      */
     public function create()
     {
-        //
+        return view('campus.create');
     }
 
     /**
@@ -37,7 +37,24 @@ class CampusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $message = "";
+        $this->validate($request,[
+            "nombre" => "required|string",
+            ]);
+
+        $alreadyExists = Campus::where('nombre',$request->nombre)->count();
+
+        if($alreadyExists == 0){
+            //no existe
+            Campus::create(["nombre"=>$request->nombre]);
+        }else{
+            //existe
+            $request->session()->flash('error', "Este campus ya ha sido registrado");
+            return back()->withInput();
+        }
+
+        $request->session()->flash("message", "Creado con exito");
+        return redirect()->route("campus.index");
     }
 
     /**
@@ -82,6 +99,15 @@ class CampusController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $campus = Campus::where('id' , $id)->firstOrFail();
+        $deleted = $campus->delete();
+
+        if($deleted){
+            $request->session()->flash("deleted", "Eliminado con &eacute;xito");
+        }
+        else{
+            $request->session()->flash("failDeleted", "Algo sali&oacute; mal. Por favor contacta a desarrollo.");
+        }
+        return redirect()->route("campus.index");
     }
 }

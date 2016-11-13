@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Profesor;
+use App\Campus;
+use App\Pais;
+use App\Director;
 
 class ProfesorController extends Controller
 {
@@ -15,7 +19,7 @@ class ProfesorController extends Controller
      */
     public function index()
     {
-        //
+        return view('profesores.index', ['profesores' => Profesor::all()]);
     }
 
     /**
@@ -47,7 +51,8 @@ class ProfesorController extends Controller
      */
     public function show($id)
     {
-        //
+        $profesor = Director::where('id', $id)->firstOrFail();
+        return view('profesores.show', ['profesor' => $profesor]);
     }
 
     /**

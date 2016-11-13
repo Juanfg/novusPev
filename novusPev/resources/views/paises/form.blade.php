@@ -1,0 +1,11 @@
+<div class="form-panel">
+	<h4 class="mb"><i class="fa fa-angle-right"></i> Inserta la informaci&oacute;n</h4>
+	<div class="form-group">
+		{!! Form::label('nombre', 'Pais:'); !!}
+		{!! Form::text('nombre'); !!}
+	</div>
+	<div class="form-group">
+		{!! Form::submit($submit_text, ['class'=>'btn primary']); !!}
+	</div>
+</div>
+{!! Form::close() !!}

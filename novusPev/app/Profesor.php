@@ -32,7 +32,7 @@ class Profesor extends Model
 
     public function campus()
     {
-        return $this->belongsTo(Campus::class, 'campus');
+        return $this->belongsTo('App\Campus', 'id');
     }
 
     public function horarios()

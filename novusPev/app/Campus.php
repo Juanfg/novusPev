@@ -22,6 +22,6 @@ class Campus extends Model
 
     public function directores()
     {
-        return $this->hasMany(Director::class, 'campus');
+        return $this->hasMany('App\Director');
     }
 }
