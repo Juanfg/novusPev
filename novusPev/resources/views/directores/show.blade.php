@@ -1,6 +1,10 @@
 @extends('layouts.sideBar')
 
-@section('title', 'Directores')
+@section('title')
+	<div>
+		<i class="fa fa-user"></i> {{$director->nombre}} {{$director->apellido}}
+	</div>
+@endsection
 
 @section('description', 'Esta es la pagina de directores')
 
@@ -8,7 +12,6 @@
 <div class="col-xs-12">
 	<img src="{{Storage::url($director->foto)}}" class="img-responsive col-xs-12 col-sm-4 col-sm-offset-4 img-thumbnail">
 </div>
-<h1 class="text-center">{{$director->nombre}} {{$director->apellido}}</h1>
 <p class="text-left"><strong>Campus:</strong> {{ App\Campus::find($director->campus)->nombre}}</p>
 <p class="text-left"><strong>Email del ITESM:</strong> {{$director->emailItesm}}</p>
 <p class="text-left"><strong>Email Personal:</strong> {{$director->emailPersonal}}</p>
