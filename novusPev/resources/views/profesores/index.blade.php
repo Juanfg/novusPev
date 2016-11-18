@@ -1,8 +1,12 @@
 @extends('layouts.sideBar')
 
-@section('title', 'Directores')
+@section('title')
+    <div>
+        <i class="fa fa-coffee"></i> Profesores
+    </div>
+@endsection
 
-@section('description', 'Esta es la pagina de directores')
+@section('description', 'Esta es la pagina de profesores')
 
 @if (session('deleted'))
 <div class="alert alert-warning">
@@ -71,11 +75,11 @@
                 @endforeach
             </tbody>
         </table> 
+        <div align="left">
+            {!! Form::open( [ 'method' => 'GET', 'route' =>['profesores.create']]) !!}
+            {!! Form::submit('Agregar un profesor', ['class' => 'btn btn-success']) !!}
+            {!! Form::close() !!}
+        </div>
     </section>
-</div>
-<div align="right">
-    {!! Form::open( [ 'method' => 'GET', 'route' =>['profesores.create']]) !!}
-    {!! Form::submit('Agregar un profesor', ['class' => 'btn btn-success']) !!}
-    {!! Form::close() !!}
 </div>
 @endsection

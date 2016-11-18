@@ -121,45 +121,43 @@ class DirectorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $message = "";
-        do{
-            $director = Director::where('id' , $id)->firstOrFail();
-            $this->validate($request,[
-                "nombre" => "required|string",
-                "apellido" => "required|string",
-                "campus" => "required|string",
-                "emailItesm" => "required|string",
-                "emailPersonal" => "required|string",
-                "image" => "image",
-                ]);
+        $director = Director::where('id' , $id)->firstOrFail();
+        $this->validate($request,[
+            "nombre" => "required|string",
+            "apellido" => "required|string",
+            "campus" => "required|string",
+            "emailItesm" => "required|string",
+            "emailPersonal" => "required|string",
+            "foto" => "image",
+        ]);
 
-            if ($request->hasFile('image')){
-                $updating['foto'] = $request->image->store("public");
-            }
+        $updating = $request->all();
+        if ($request->hasFile('foto')){
+            $updating['foto'] = $request->image->store("public");
+        }
 
-            $index = $request->campus;
+        $index = $request->campus;
 
-            $campi = Campus::select('nombre')->get();
+        $campi = Campus::select('nombre')->get();
 
-            foreach ($campi as $cnombre) {
-                $nombres[] = $cnombre->nombre;
-            }
+        foreach ($campi as $cnombre) {
+            $nombres[] = $cnombre->nombre;
+        }
 
-            $campus = Campus::where('nombre', $nombres[$index])->first()->id;
+        $campus = Campus::where('nombre', $nombres[$index])->first()->id;
 
-            $updating['campus'] = $campus;
+        $updating['campus'] = $campus;
 
-            $alreadyExists = Director::where('emailItesm',$request->emailItesm)->where('id', '<>' ,$id)->count();
+        $alreadyExists = Director::where('emailItesm',$request->emailItesm)->where('id', '<>' ,$id)->count();
 
-            if($alreadyExists == 0){
-            //no existe
-                $director->update($updating);
-            }else{
-            //existe
-                $request->session()->flash('error', "Este director ya ha sido registrado");
-                return back()->withInput();
-            }
-        }while(false);
+        if($alreadyExists == 0){
+        //no existe
+            $director->update($updating);
+        }else{
+        //existe
+            $request->session()->flash('error', "Este director ya ha sido registrado");
+            return back()->withInput();
+        }
         $request->session()->flash("message", "Datos actualizados con exito");
         return redirect()->route("directores.index");
     }

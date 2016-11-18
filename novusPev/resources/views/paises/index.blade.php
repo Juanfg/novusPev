@@ -1,6 +1,10 @@
 @extends('layouts.sideBar')
 
-@section('title', 'Paises')
+@section('title')
+    <div>
+        <i class="fa fa-globe"></i> Paises
+    </div>
+@endsection
 
 @section('description', 'Esta es la pagina de paises')
 
@@ -31,11 +35,11 @@
                 @endforeach
             </tbody>
         </table> 
+        <div align="left">
+            {!! Form::open( [ 'method' => 'GET', 'route' =>['paises.create']]) !!}
+            {!! Form::submit('Agregar un pais', ['class' => 'btn btn-success']) !!}
+            {!! Form::close() !!}
+        </div>
     </section>
-</div>
-<div align="right">
-    {!! Form::open( [ 'method' => 'GET', 'route' =>['paises.create']]) !!}
-    {!! Form::submit('Agregar un pais', ['class' => 'btn btn-success']) !!}
-    {!! Form::close() !!}
 </div>
 @endsection

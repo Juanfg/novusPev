@@ -1,6 +1,10 @@
 @extends('layouts.sideBar')
 
-@section('title', 'Campus')
+@section('title')
+    <div>
+        <i class="fa fa-university"></i> Campus
+    </div>
+@endsection
 
 @section('description', 'Esta es la pagina de campus')
 
@@ -31,11 +35,11 @@
                 @endforeach
             </tbody>
         </table> 
+        <div align="left">
+            {!! Form::open( [ 'method' => 'GET', 'route' =>['campus.create']]) !!}
+            {!! Form::submit('Agregar un campus', ['class' => 'btn btn-success']) !!}
+            {!! Form::close() !!}
+        </div>
     </section>
-</div>
-<div align="right">
-    {!! Form::open( [ 'method' => 'GET', 'route' =>['campus.create']]) !!}
-    {!! Form::submit('Agregar un campus', ['class' => 'btn btn-success']) !!}
-    {!! Form::close() !!}
 </div>
 @endsection

@@ -5,7 +5,7 @@
 		{!! Form::text('nombre'); !!}
 	</div>
 	<div class="form-group">
-		{!! Form::submit($submit_text, ['class'=>'btn primary']); !!}
+		{!! Form::submit($submit_text, ['class'=>'btn primary btn-success']); !!}
 	</div>
 </div>
 {!! Form::close() !!}

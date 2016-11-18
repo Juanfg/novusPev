@@ -1,10 +1,12 @@
 @extends('layouts.sideBar')
 
-@section('title', 'Directores')
+@section('title')
+	<div>
+		<i class="fa fa-wrench"></i> Editar Director
+	</div>
+@endsection
 
-@section('description', 'Esta es la pagina de directores')
-
-@section('content')
+@section('description', 'En esta sección podrás editar directores')
 
 @if (session('error'))
 <div class="alert alert-danger">
@@ -13,10 +15,9 @@
 </div>
 @endif
 
-<h2> Editar director </h2>
-<p> Aqu&iacute; podr&aacute;s editar los datos del director. <br> </p>
+@section('content')
 
-<div class="col-sm-12"> 
+<div class="panel-body">
 	{!! Form::model($director, ['method' => 'PUT', 'route' =>['directores.update', $director->id], 'files' => 'true']) !!}
 	@include('directores.form', ['submit_text' => 'Editar'])
 </div>

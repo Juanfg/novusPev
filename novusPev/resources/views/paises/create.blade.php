@@ -1,6 +1,10 @@
 @extends('layouts.sideBar')
 
-@section('title', 'Paises')
+@section('title')
+    <div>
+        <i class="fa fa-globe"></i> Agregar Pais
+    </div>
+@endsection
 
 @section('description', 'Esta es la pagina de paises')
 
@@ -29,7 +33,7 @@
     </div>
 @endif
 
-<div class="col-sm-12"> 
+<div class="panel-body">
     <h2> Agregar un pa&iacute;s </h2>
     <h3> Aqu&iacute; podr&aacute;s agregar paises. </h3>
     <br>

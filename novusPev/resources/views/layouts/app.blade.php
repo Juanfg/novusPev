@@ -47,6 +47,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+                    <img src="{{Storage::url('public/TecnologicoDeMonterreyLogo.png')}}" width="50px">
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())

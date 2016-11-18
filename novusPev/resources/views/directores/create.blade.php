@@ -1,6 +1,10 @@
 @extends('layouts.sideBar')
 
-@section('title', 'Directores')
+@section('title')
+    <div>
+        <i class="fa fa-user"></i> Agregar Director
+    </div>
+@endsection
 
 @section('description', 'Esta es la pagina de directores')
 
@@ -29,10 +33,7 @@
     </div>
 @endif
 
-<div class="col-sm-12"> 
-    <h2> Agregar un director </h2>
-    <h3> Aqu&iacute; podr&aacute;s agregar directores. </h3>
-    <br>
+<div class="panel-body">
     {!! Form::model(new App\Director, ['route' =>'directores.store', 'files' => 'true' ]) !!}
     @include('directores.form', ['submit_text' => 'Crear'])
 </div>

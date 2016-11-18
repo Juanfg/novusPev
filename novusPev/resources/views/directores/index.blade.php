@@ -1,6 +1,10 @@
 @extends('layouts.sideBar')
 
-@section('title', 'Directores')
+@section('title')
+    <div>
+        <i class="fa fa-user"></i> Directores
+    </div>
+@endsection
 
 @section('description', 'Esta es la pagina de directores')
 
@@ -46,18 +50,18 @@
                     <td class="center"><a href="{{ route('directores.show', [ $director->id]) }}"><img src="{{Storage::url($director->foto)}}" width=80 height=80 class="img-responsive img-thumbnail"></td>
                     <td class="center">{{ $director->nombre }}</td>
                     <td class="center">{{ $director->apellido }}</td>
-                    <td class="center">{{ App\Campus::find($director->campus)->nombre}}</td>
+                    <td class="center">{{ App\Campus::find($director->campus)->nombre }}</td>
                     <td class="center">{{ $director->emailItesm }}</td>
                     <td class="center">{{ $director->emailPersonal }}</td>
                     <td class="center" width="10%">
                         <div class="col-xs-1 col-xs-offset-1">
                             {!! Form::open( [ 'method' => 'GET', 'route'=>['directores.edit', $director->id]]) !!}
-                            <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
                             {!! Form::close() !!}
                         </div>
                         <div class="col-xs-1">
                             {!! Form::open( [ 'method' => 'DELETE', 'route'=>['directores.destroy', $director->id]]) !!}
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                             {!! Form::close() !!}
                         </div>
                     </td>
@@ -65,11 +69,11 @@
                 @endforeach
             </tbody>
         </table> 
+        <div align="left">
+            {!! Form::open( [ 'method' => 'GET', 'route' =>['directores.create']]) !!}
+                {!! Form::submit('Agregar un director', ['class' => 'btn btn-success']) !!}
+            {!! Form::close() !!}
+        </div>
     </section>
-</div>
-<div align="right">
-    {!! Form::open( [ 'method' => 'GET', 'route' =>['directores.create']]) !!}
-    {!! Form::submit('Agregar un director', ['class' => 'btn btn-success']) !!}
-    {!! Form::close() !!}
 </div>
 @endsection

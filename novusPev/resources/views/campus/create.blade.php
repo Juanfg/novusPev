@@ -1,6 +1,10 @@
 @extends('layouts.sideBar')
 
-@section('title', 'Campus')
+@section('title')
+    <div>
+        <i class ="fa fa-university"></i> Agregar Campus
+    </div>
+@endsection
 
 @section('description', 'Esta es la pagina de campus')
 
@@ -29,10 +33,7 @@
     </div>
 @endif
 
-<div class="col-sm-12"> 
-    <h2> Agregar un campus </h2>
-    <h3> Aqu&iacute; podr&aacute;s agregar campus. </h3>
-    <br>
+<div class="panel-body">
     {!! Form::model(new App\Campus, ['route' =>'campus.store']) !!}
     @include('campus.form', ['submit_text' => 'Crear'])
 </div>

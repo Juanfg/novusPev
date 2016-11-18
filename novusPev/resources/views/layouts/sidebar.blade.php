@@ -51,6 +51,7 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <!-- /.dropdown -->
+                <img src="{{Storage::url('public/TecnologicoDeMonterreyLogo.png')}}" width="50px">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -88,17 +89,17 @@
                             <a href="{{ route('/home') }}"><i class="fa fa-home fa-fw"></i> Inicio</a>
                         </li>
                         <li>
-                            <a href="{{ route('profesores.index') }}"><i class="fa fa-users fa-fw"></i> Profesores</a>
+                            <a href="{{ route('profesores.index') }}"><i class="fa fa-coffee fa-fw"></i> Profesores</a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="{{ route('directores.index') }}"><i class="fa fa-users fa-fw"></i> Directores</i></a>
+                            <a href="{{ route('directores.index') }}"><i class="fa fa-user fa-fw"></i> Directores</i></a>
                         </li>
                         <li>
                             <a href="{{ route('campus.index') }}"><i class="fa fa-university fa-fw"></i> Campus</a>
                         </li>
                         <li>
-                            <a href="{{ route('paises.index') }}"><i class="fa fa-map fa-fw"></i> Paises</a>
+                            <a href="{{ route('paises.index') }}"><i class="fa fa-globe fa-fw"></i> Paises</a>
                         </li>
                     </ul>
                 </div>
