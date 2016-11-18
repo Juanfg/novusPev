@@ -125,7 +125,9 @@
                                 @yield('description')
                             </div>
                             <!-- /.panel-heading -->
-                            @yield('content')
+                            <div class="panel-body">
+                                @yield('content')
+                            </div>
                         </div>
                     </div>
                 </div>

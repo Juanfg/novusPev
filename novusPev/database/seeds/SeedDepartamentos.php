@@ -4,22 +4,22 @@ use Illuminate\Database\Seeder;
 
 class SeedDepartamentos extends Seeder{
 	public function run(){
+
 		DB::table('Departamentos')->insert([
-			'departamento' => "Matemáticas y Ciencias Exactas",
-			'idCampus' => 1,
-				
+			'departamento' => "Diseño industrial",
+			'idCampus' => 15,		
 
 		]);
 
 		DB::table('Departamentos')->insert([
-			'departamento' => "Arquitectura",
-			'idCampus' => 2,		
+			'departamento' => "Negocios Internacionales",
+			'idCampus' => 17,		
 
 		]);
 
 		DB::table('Departamentos')->insert([
-			'departamento' => "Humanidades",
-			'idCampus' => 1,		
+			'departamento' => "Derecho y Relaciones Internacionales",
+			'idCampus' => 17,		
 
 		]);
 

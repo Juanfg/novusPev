@@ -5,73 +5,45 @@ use Illuminate\Database\Seeder;
 class SeedProfesores extends Seeder{
 	public function run(){
 		DB::table('Profesores')->insert([
-			'nombre' => "Jorge Alberto",
-			'apellido' => "Beauregard Bravo",
+			'nombre' => "Claudio",
+			'apellido' => "Formicola",
+			'idPaisOrigen' => 4,
+			'idPaisResidencia' => 4,
+			'link' => "it.linkedin.com/in/claudioformicola",
+			'emailItesm' => "CFORMICOLA@itesm.mx",
+			'emailPersonal' => "info@claudioformicola.com",
+			'foto' => "public/CF.jpg",
+			'experiencia' => "Tecnológico de Monterrey| C Laguna| Depto. Arquitectura| Profesor| Fernando Ramos Martin| 16/07/2014| 31/07/2014",
+			'idDirector' => 1,
+			'campus' => 15,
+		]);
+
+		DB::table('Profesores')->insert([
+			'nombre' => "Dominique Marie Yvonne Louise",
+			'apellido' => "Maze",
 			'idPaisOrigen' => 5,
-			'idPaisResidencia' => 1,
-			'link' => "www.barroco.org",
-			'emailItesm' => "jbeauregard@itesm.mx",
-			'emailPersonal' => "jorgeAlberto@loco.mx",
-			'foto' => "img/Profesores/JABB",
-			'experiencia' => "Diseno de paginas web",
+			'idPaisResidencia' => 5,
+			'link' => "Desconocido",
+			'emailItesm' => "DMAZE@itesm.mx",
+			'emailPersonal' => "Desconocido",
+			'foto' => "public/DMYL.jpg",
+			'experiencia' => "NI3039| Gestión de negocios internacionales| 13443| Tec de Monterrey Campus Puebla| 100| 11/01/2016| 20/05/2016| Grado de maestría en el área",
+			'idDirector' => 2,
+			'campus' => 17,
+		]);
+
+		DB::table('Profesores')->insert([
+			'nombre' => "Douglas John",
+			'apellido' => "Young",
+			'idPaisOrigen' => 2,
+			'idPaisResidencia' => 2,
+			'link' => "www.montana.edu/djyoung/",
+			'emailItesm' => "douglas.young@itesm.mx",
+			'emailPersonal' => "Desconocido",
+			'foto' => "public/DJY.jpg",
+			'experiencia' => "Tecnológico de Monterrey| Campus San Luis Potosi| Negocios| Profesor Extranjero Visitante| Mario Cortés Garay| 01/08/2015| 24/07/2016| Tiempo completo",
 			'idDirector' => 3,
-			'campus' => 2,
-		]);
-
-		DB::table('Profesores')->insert([
-			'nombre' => "Ricardo",
-			'apellido' => "Rodiles Legaspi",
-			'idPaisOrigen' => 9,
-			'idPaisResidencia' => 1,
-			'link' => "www.legabit.com",
-			'emailItesm' => "rrodiles@itesm.mx",
-			'emailPersonal' => "legabit@gmail.com",
-			'foto' => "img/Profesores/RRL",
-			'experiencia' => "BackEnd Developer",
-			'idDirector' => 2,
-			'campus' => 1,
-		]);
-
-		DB::table('Profesores')->insert([
-			'nombre' => "Tabatha Tabeli",
-			'apellido' => "Acosta Pastrana",
-			'idPaisOrigen' => 3,
-			'idPaisResidencia' => 1,
-			'link' => "www.alces.org",
-			'emailItesm' => "tacosta@itesm.mx",
-			'emailPersonal' => "tabeli.acs@gmail.com",
-			'foto' => "img/Profesores/TTAP",
-			'experiencia' => "Freelancer",
-			'idDirector' => 1,
-			'campus' => 1,
-		]);
-
-		DB::table('Profesores')->insert([
-			'nombre' => "Fernanda",
-			'apellido' => "Montano Rios",
-			'idPaisOrigen' => 9,
-			'idPaisResidencia' => 1,
-			'link' => "www.9gag.com",
-			'emailItesm' => "fmontano@itesm.mx",
-			'emailPersonal' => "alkiva@hotmail.mx",
-			'foto' => "img/Profesores/FMR",
-			'experiencia' => "Creacion de Contenido en 9gag",
-			'idDirector' => 1,
-			'campus' => 1,
-		]);
-
-		DB::table('Profesores')->insert([
-			'nombre' => "Daniel",
-			'apellido' => "Perez Rojas",
-			'idPaisOrigen' => 6,
-			'idPaisResidencia' => 1,
-			'link' => "ing.pue.itesm.mx/danperez/",
-			'emailItesm' => "danperez@itesm.mx",
-			'emailPersonal' => "danperez@rojas.mx",
-			'foto' => "img/Profesores/DPR",
-			'experiencia' => "Maestro de catedra en ITESM Campus Puebla",
-			'idDirector' => 2,
-			'campus' => 3,
+			'campus' => 17,
 		]);
 	}
 }

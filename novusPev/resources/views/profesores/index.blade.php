@@ -28,7 +28,7 @@
 @endif
 
 @section('content')
-<div class="panel-body">
+<div>
     <section>
         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>

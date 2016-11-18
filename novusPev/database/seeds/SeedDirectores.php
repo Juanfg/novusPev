@@ -5,32 +5,32 @@ use Illuminate\Database\Seeder;
 class SeedDirectores extends Seeder{
 	public function run(){
 		DB::table('Directores')->insert([
-			'nombre' => "Francisco Julian",
-			'apellido' => "Huerta y Munive",
-			'emailItesm' => "L01323513@itesm.mx",
-			'emailPersonal' => "franciscohuerta@mailinator.com",
-			'foto' => "pp1.png",
-			'campus' => 1,		
+			'nombre' => "Gerardo",
+			'apellido' => "Muñiz Rivera",
+			'emailItesm' => "gerardo_muniz@itesm.mx",
+			'emailPersonal' => "Desconocido",
+			'foto' => "public/GMR.jpg",
+			'campus' => 15,		
 
 		]);
 
 		DB::table('Directores')->insert([
-			'nombre' => "Eduardo",
-			'apellido' => "Luna Gutierrez",
-			'emailItesm' => "L01322970@itesm.mx",
-			'emailPersonal' => "eduardoLuna@mailinator.com",
-			'foto' => "pp2.png",
-			'campus' => 2,		
+			'nombre' => "Ramón Eulogio",
+			'apellido' => "Arroyo Gámez",
+			'emailItesm' => "rarroyo@itesm.mx",
+			'emailPersonal' => "Desconocido",
+			'foto' => "public/noImgUser.png",
+			'campus' => 17,		
 
 		]);
 
 		DB::table('Directores')->insert([
-			'nombre' => "Alejandro",
-			'apellido' => "Tovar Muñoz de Cote",
-			'emailItesm' => "L01328484@itesm.mx",
-			'emailPersonal' => "atmdc@mailinator.com",
-			'foto' => "pp3.png",
-			'campus' => 3,		
+			'nombre' => "José Juan",
+			'apellido' => "Anzures Gurria",
+			'emailItesm' => "anzuresgurria@itesm.mx",
+			'emailPersonal' => "Desconocido",
+			'foto' => "public/JJAG.jpg",
+			'campus' => 17,		
 
 		]);
 	}

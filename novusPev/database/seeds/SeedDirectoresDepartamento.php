@@ -14,15 +14,15 @@ class SeedDirectoresDepartamento extends Seeder{
 
 		DB::table('DirectoresDepartamento')->insert([
 			'id' => 2,
-			'idDepartamento' => 5,
-			'idDirector' => 3,
+			'idDepartamento' => 2,
+			'idDirector' => 2,
 			'telefonoOficina' => "222-921-8242",
 
 		]);
 
 		DB::table('DirectoresDepartamento')->insert([
 			'id' => 3,
-			'idDepartamento' => 2,
+			'idDepartamento' => 3,
 			'idDirector' => 3,
 			'telefonoOficina' => "222-553-2813",
 

@@ -26,14 +26,14 @@ class SeedHorarios extends Seeder{
 		]);
 
 		DB::table('Horarios')->insert([
-			'idProfesor' => 4,
+			'idProfesor' => 1,
 			'diaDeSemana' => 5,
 			'horaInicio' => "9999-12-31 23:59:59",
 			'horaFin' => "9999-12-31 23:59:59",
 		]);
 
 		DB::table('Horarios')->insert([
-			'idProfesor' => 5,
+			'idProfesor' => 3,
 			'diaDeSemana' => 6,
 			'horaInicio' => "9999-12-31 23:59:59",
 			'horaFin' => "9999-12-31 23:59:59",
