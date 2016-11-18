@@ -41,11 +41,10 @@ class ProfesorController extends Controller
         
         $directores = Director::select('nombre', 'apellido')->get();
         foreach ($directores as $director){
-            $nombres_directores[] = $director->nombre;
-            $apellidos_directores[] = $director->apellido;
+            $nombres_directores[] = $director->nombre . " " . $director->apellido;
         }
 
-        return view('profesores.create', ['campus'=>$nombres_campus, 'paises'=>$nombres_paises, 'nombresDirectores'=>$nombres_directores, 'apellidosDirectores'=>$apellidos_directores]);
+        return  view('profesores.create', ['campus'=>$nombres_campus, 'paises'=>$nombres_paises, 'nombresDirectores'=>$nombres_directores]);
     }
 
     /**
@@ -153,9 +152,9 @@ class ProfesorController extends Controller
         foreach ($paises as $pais) {
             $nombres_paises[] = $pais->nombre;
         }
-        $directores = Director::select('nombre')->get();
+        $directores = Director::select('nombre', 'apellido')->get();
         foreach ($directores as $director) {
-            $nombres_directores[] = $director->nombre;
+            $nombres_directores[] = $director->nombre . " " . $director->apellido;
         }
         $profesor = Profesor::where('id', $id)->firstOrFail();
         return view('profesores.edit', ['profesor' => $profesor, 'campus'=>$nombres_campus, 'paises'=>$nombres_paises, 'nombresDirectores'=>$nombres_directores]);
