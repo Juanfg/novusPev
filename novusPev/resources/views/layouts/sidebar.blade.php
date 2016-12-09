@@ -12,16 +12,16 @@
     <title>novusPev</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{URL::asset('assetsSideBar/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('assetsSidebar/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="{{URL::asset('assetsSideBar/vendor/metisMenu/metisMenu.min.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('assetsSidebar/vendor/metisMenu/metisMenu.min.css')}}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{{URL::asset('assetsSideBar/dist/css/sb-admin-2.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('assetsSidebar/dist/css/sb-admin-2.css')}}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="{{URL::asset('assetsSideBar/vendor/font-awesome/css/font-awesome.min.cs')}}s" rel="stylesheet" type="text/css">
+    <link href="{{URL::asset('assetsSidebar/vendor/font-awesome/css/font-awesome.min.cs')}}s" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -140,16 +140,16 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="{{URL::asset('assetsSideBar/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{URL::asset('assetsSidebar/vendor/jquery/jquery.min.js')}}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{URL::asset('assetsSideBar/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{URL::asset('assetsSidebar/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="{{URL::asset('assetsSideBar/vendor/metisMenu/metisMenu.min.js')}}"></script>
+    <script src="{{URL::asset('assetsSidebar/vendor/metisMenu/metisMenu.min.js')}}"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="{{URL::asset('assetsSideBar/dist/js/sb-admin-2.js')}}"></script>
+    <script src="{{URL::asset('assetsSidebar/dist/js/sb-admin-2.js')}}"></script>
 
 </body>
 
