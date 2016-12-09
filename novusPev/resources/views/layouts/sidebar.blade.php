@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">novusPev</a>
+                <a class="navbar-brand" href="{{ route('/home') }}">novusPev</a>
             </div>
             <!-- /.navbar-header -->
 
