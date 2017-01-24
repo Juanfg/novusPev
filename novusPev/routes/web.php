@@ -27,6 +27,16 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('paises', 'PaisController');
 
+    Route::resource('idiomas', 'IdiomaController');
+
+    Route::resource('materias', 'MateriaController');
+
+    Route::resource('periodos', 'PeriodoController');
+
+    Route::resource('semestres', 'SemestreController');
+
+    Route::resource('evaluaciones', 'EvaluacionController');
+
     Auth::routes();
 
     Route::get('logout', function(){

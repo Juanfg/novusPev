@@ -1,13 +1,12 @@
-
 @extends('layouts.sidebar')
 
 @section('title')
     <div>
-        <i class="fa fa-globe"></i> Agregar Pais
+        <i class="fa fa-graduation-cap"></i> Agregar Materia
     </div>
 @endsection
 
-@section('description', 'Esta es la pagina de paises')
+@section('description', 'Esta es la pagina de materias')
 
 @section('content')
 
@@ -35,11 +34,11 @@
 @endif
 
 <div class="panel-body">
-    <h2> Agregar un pa&iacute;s </h2>
-    <h3> Aqu&iacute; podr&aacute;s agregar paises. </h3>
+    <h2> Agregar un materia </h2>
+    <h3> Aqu&iacute; podr&aacute;s agregar materias. </h3>
     <br>
-    {!! Form::model(new App\Pais, ['route' =>'paises.store']) !!}
-    @include('paises.form', ['submit_text' => 'Crear'])
+    {!! Form::model(new App\Materia, ['route' =>'materias.store']) !!}
+    @include('materias.form', ['submit_text' => 'Crear'])
 </div>
 
 @endsection

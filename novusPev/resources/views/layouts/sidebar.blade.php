@@ -85,6 +85,21 @@
                         <li>
                             <a href="{{ route('paises.index') }}"><i class="fa fa-globe fa-fw"></i> Paises</a>
                         </li>
+                        <li>
+                            <a href="{{ route('idiomas.index') }}"><i class="fa fa-language fa-fw"></i> Idiomas</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('materias.index') }}"><i class="fa fa-graduation-cap fa-fw"></i> Materias</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('periodos.index') }}"><i class="fa fa-calendar-o fa-fw"></i> Periodos</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('semestres.index') }}"><i class="fa fa-calendar fa-fw"></i> Semestres</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('evaluaciones.index') }}"><i class="fa fa-check fa-fw"></i> Evaluaciones</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
