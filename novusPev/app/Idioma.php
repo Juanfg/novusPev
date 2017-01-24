@@ -14,4 +14,8 @@ class Idioma extends Model
     {
         return $this->hasMany(Evaluacion::class, 'idIdioma');
     }
+
+    public function profesores(){
+    	return $this->belongsToMany('App\Profesor');
+    }
 }
