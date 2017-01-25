@@ -103,6 +103,11 @@
                         <li>
                             <a href="{{ route('departamentos.index') }}"><i class="fa fa-building fa-fw"></i> Departamentos</a>
                         </li>
+                        <li>
+                            <a href="{{ route('areasInteres.index') }}"><i class="fa fa-book fa-fw"></i> Areas de Inter&eacute;s</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('horarios.index') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
