@@ -39,6 +39,12 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('evaluaciones', 'EvaluacionController');
 
+    Route::resource('areasInteres', 'AreaInteresController');
+ 
+    Route::resource('profesoresAreasInteres', 'ProfesoresAreaDeInteresController');
+ 
+    Route::resource('horarios', 'HorarioController');
+
     Auth::routes();
 
     Route::get('logout', function(){
