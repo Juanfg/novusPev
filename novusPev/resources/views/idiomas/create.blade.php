@@ -1,13 +1,12 @@
-
 @extends('layouts.sidebar')
 
 @section('title')
     <div>
-        <i class="fa fa-globe"></i> Agregar Pais
+        <i class="fa fa-language"></i> Agregar Idioma
     </div>
 @endsection
 
-@section('description', 'Esta es la pagina de paises')
+@section('description', 'Esta es la pagina de idiomas')
 
 @section('content')
 
@@ -35,11 +34,11 @@
 @endif
 
 <div class="panel-body">
-    <h2> Agregar un pa&iacute;s </h2>
-    <h3> Aqu&iacute; podr&aacute;s agregar paises. </h3>
+    <h2> Agregar un idioma </h2>
+    <h3> Aqu&iacute; podr&aacute;s agregar idiomas. </h3>
     <br>
-    {!! Form::model(new App\Pais, ['route' =>'paises.store']) !!}
-    @include('paises.form', ['submit_text' => 'Crear'])
+    {!! Form::model(new App\Idioma, ['route' =>'idiomas.store']) !!}
+    @include('idiomas.form', ['submit_text' => 'Crear'])
 </div>
 
 @endsection

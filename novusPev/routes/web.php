@@ -27,10 +27,22 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('paises', 'PaisController');
 
+<<<<<<< HEAD
     Route::resource('areasInteres', 'AreaInteresController');
 
     Route::resource('profesoresAreasInteres', 'ProfesoresAreaDeInteresController');
 
+=======
+    Route::resource('idiomas', 'IdiomaController');
+
+    Route::resource('materias', 'MateriaController');
+
+    Route::resource('periodos', 'PeriodoController');
+
+    Route::resource('semestres', 'SemestreController');
+
+    Route::resource('evaluaciones', 'EvaluacionController');
+>>>>>>> origin/master
 
     Auth::routes();
 

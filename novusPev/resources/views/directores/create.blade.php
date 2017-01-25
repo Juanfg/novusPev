@@ -1,3 +1,4 @@
+
 @extends('layouts.sidebar')
 
 @section('title')
@@ -32,7 +33,6 @@
         </ul>
     </div>
 @endif
-
 <div class="panel-body">
     {!! Form::model(new App\Director, ['route' =>'directores.store', 'files' => 'true' ]) !!}
     @include('directores.form', ['submit_text' => 'Crear'])

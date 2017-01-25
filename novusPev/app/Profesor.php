@@ -44,4 +44,8 @@ class Profesor extends Model
     {
         return $this->hasMany(Horario::class, 'idProfesor');
     }
+
+    public function idiomas(){
+        return $this->belongsToMany('App\Idioma', 'ProfesoresIdioma', 'idProfesor','idIdioma');
+    }
 }
