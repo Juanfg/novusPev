@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('paises', 'PaisController');
 
+    Route::resource('departamentos', 'DepartamentoController');
+  
     Route::resource('idiomas', 'IdiomaController');
 
     Route::resource('materias', 'MateriaController');
