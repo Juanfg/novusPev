@@ -27,6 +27,11 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('paises', 'PaisController');
 
+    Route::resource('areasInteres', 'AreaInteresController');
+
+    Route::resource('profesoresAreasInteres', 'ProfesoresAreaDeInteresController');
+
+
     Auth::routes();
 
     Route::get('logout', function(){

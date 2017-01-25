@@ -85,6 +85,9 @@
                         <li>
                             <a href="{{ route('paises.index') }}"><i class="fa fa-globe fa-fw"></i> Paises</a>
                         </li>
+                        <li>
+                            <a href="{{ route('areasInteres.index') }}"><i class="fa fa-book fa-fw"></i> Areas de Inter&eacute;s</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

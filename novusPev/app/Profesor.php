@@ -20,6 +20,11 @@ class Profesor extends Model
         return $this->hasMany(Evaluacion::class, 'idProfesor');
     }
 
+    public function profesoresAreasDeInteres()
+    {
+        return $this->hasMany(ProfesorAreaInteres::class, 'idProfesor');
+    }
+
     public function paisDeOrigen()
     {
         return $this->belongsTo(Pais::class, 'idPaisOrigen');
