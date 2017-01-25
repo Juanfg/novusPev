@@ -100,6 +100,9 @@
                         <li>
                             <a href="{{ route('evaluaciones.index') }}"><i class="fa fa-check fa-fw"></i> Evaluaciones</a>
                         </li>
+                        <li>
+                            <a href="{{ route('departamentos.index') }}"><i class="fa fa-building fa-fw"></i> Departamentos</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
