@@ -5,6 +5,7 @@ use Illuminate\Database\Seeder;
 class SeedProfesores extends Seeder{
 	public function run(){
 		DB::table('Profesores')->insert([
+			'nomina' => "L01292101",
 			'nombre' => "Claudio",
 			'apellido' => "Formicola",
 			'idPaisOrigen' => 4,
@@ -19,6 +20,7 @@ class SeedProfesores extends Seeder{
 		]);
 
 		DB::table('Profesores')->insert([
+			'nomina' => "L0123101",
 			'nombre' => "Dominique Marie Yvonne Louise",
 			'apellido' => "Maze",
 			'idPaisOrigen' => 5,
@@ -33,6 +35,7 @@ class SeedProfesores extends Seeder{
 		]);
 
 		DB::table('Profesores')->insert([
+			'nomina' => "L02241112",
 			'nombre' => "Douglas John",
 			'apellido' => "Young",
 			'idPaisOrigen' => 2,

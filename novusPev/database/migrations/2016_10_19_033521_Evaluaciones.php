@@ -19,6 +19,7 @@ class Evaluaciones extends Migration
             $table->foreign('idProfesor')->references('id')->on('Profesores')->onDelete('cascade');
             $table->integer('idMateria')->unsigned();
             $table->foreign('idMateria')->references('id')->on('Materias')->onDelete('cascade');
+            $table->integer('grupo')->unsigned();
             $table->integer('idSemestre')->unsigned();
             $table->foreign('idSemestre')->references('id')->on('Semestres')->onDelete('cascade');
             $table->integer('idIdioma')->unsigned();

@@ -36,6 +36,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Foto</th>
+                    <th>Nomina</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Campus</th>
@@ -53,6 +54,7 @@
                 <tr>
                     <td class="center">{{ $profesor->id }} </td>
                     <td class="center"><a href="{{ route('profesores.show', [ $profesor->id]) }}"><img src="{{Storage::url($profesor->foto)}}" width=80 height=80 class="img-responsive img-thumbnail"></td>
+                    <td class="center">{{ $profesor->nomina }}</td>
                     <td class="center">{{ $profesor->nombre }}</td>
                     <td class="center">{{ $profesor->apellido }}</td>
                     <td class="center">{{ App\Campus::find($profesor->campus)->nombre}}</td>
@@ -68,13 +70,7 @@
                             {!! Form::close() !!}
                     </div>
                     </td>
-                    <td class="center">
-                        <div class="col-xs-1">
-                            {!! Form::open( [ 'method' => 'GET', 'route'=>['profesoresAreasInteres.show', $profesor->id]]) !!}
-                            <button class="btn btn-info btn-xs"><i class="fa fa-book"></i></button>
-                            {!! Form::close() !!}
-                        </div>
-                    </td>
+                    
                     <td class="center">
                         <div class="col-xs-1">
                             {!! Form::open( [ 'method' => 'GET', 'route'=>['profesores.edit', $profesor->id]]) !!}

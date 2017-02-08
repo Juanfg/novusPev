@@ -13,6 +13,7 @@
 <div class="col-xs-12">
 	<img src="{{Storage::url($director->foto)}}" class="img-responsive col-xs-12 col-sm-4 col-sm-offset-4 img-thumbnail">
 </div>
+<p class="text-left"><strong>Nomina:</strong> {{$director->nomina}}</p>
 <p class="text-left"><strong>Campus:</strong> {{ App\Campus::find($director->campus)->nombre}}</p>
 <p class="text-left"><strong>Email del ITESM:</strong> {{$director->emailItesm}}</p>
 <p class="text-left"><strong>Email Personal:</strong> {{$director->emailPersonal}}</p>

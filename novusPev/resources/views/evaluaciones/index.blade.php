@@ -17,6 +17,7 @@
                     <th>ID</th>
                     <th>Profesor</th>
                     <th>Materia</th>
+                    <th>Grupo</th>
                     <th>Semestre</th>
                     <th>Idioma</th>
                     <th>Promedio</th>
@@ -29,6 +30,7 @@
                     <td class="center" width="5%">{{ $evaluacion->id }} </td>
                     <td class="center">{{ App\Profesor::find($evaluacion->idProfesor)->nombre}} {{ App\Profesor::find($evaluacion->idProfesor)->apellido}}</td>
                     <td class="center">{{ App\Materia::find($evaluacion->idMateria)->materia}}</td>
+                    <td class="center">{{ $evaluacion->grupo }}</td>
                     <td class="center">{{ App\Periodo::find(App\Semestre::find($evaluacion->idSemestre)->idPeriodo)->periodo . " " . App\Semestre::find($evaluacion->idSemestre)->anio}}</td>
                     <td class="center">{{ App\Idioma::find($evaluacion->idIdioma)->idioma}}</td>
                     <td class="center">{{ $evaluacion->calificacionPromedio }}</td>

@@ -15,6 +15,7 @@ class Profesores extends Migration
     {
         Schema::create('Profesores', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nomina');
             $table->string('nombre');
             $table->string('apellido');
             $table->integer('idPaisOrigen')->unsigned();

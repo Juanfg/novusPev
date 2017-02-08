@@ -36,6 +36,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Foto</th>
+                    <th>Nomina</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Campus</th>
@@ -49,6 +50,7 @@
                 <tr>
                     <td class="center">{{ $director->id }} </td>
                     <td class="center"><a href="{{ route('directores.show', [ $director->id]) }}"><img src="{{Storage::url($director->foto)}}" width=80 height=80 class="img-responsive img-thumbnail"></td>
+                    <td class="center">{{ $director->nomina }}</td>
                     <td class="center">{{ $director->nombre }}</td>
                     <td class="center">{{ $director->apellido }}</td>
                     <td class="center">{{ App\Campus::find($director->campus)->nombre }}</td>

@@ -8,7 +8,7 @@ class Evaluacion extends Model
 {
     protected $table = "Evaluaciones";
 
-    protected $fillable = ['id', 'idProfesor', 'idMateria', 'idSemestre', 'idIdioma', 'calificacionPromedio'];
+    protected $fillable = ['id', 'idProfesor', 'idMateria','grupo', 'idSemestre', 'idIdioma', 'calificacionPromedio'];
 
     public function profesor()
     {

@@ -15,6 +15,7 @@ class Directores extends Migration
     {
         Schema::create('Directores', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nomina');
             $table->string('nombre');
             $table->string('apellido');
             $table->string('emailItesm');
