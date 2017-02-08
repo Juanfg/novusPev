@@ -86,6 +86,12 @@
                             <a href="{{ route('paises.index') }}"><i class="fa fa-globe fa-fw"></i> Paises</a>
                         </li>
                         <li>
+                            <a href="{{ route('areasInteres.index') }}"><i class="fa fa-book fa-fw"></i> Areas de Inter&eacute;s</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('horarios.index') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
+                        </li>
+                        <li>
                             <a href="{{ route('idiomas.index') }}"><i class="fa fa-language fa-fw"></i> Idiomas</a>
                         </li>
                         <li>
@@ -99,7 +105,16 @@
                         </li>
                         <li>
                             <a href="{{ route('evaluaciones.index') }}"><i class="fa fa-check fa-fw"></i> Evaluaciones</a>
+>>>>>>> origin/master
                         </li>
+                        <li>
+                            <a href="{{ route('departamentos.index') }}"><i class="fa fa-building fa-fw"></i> Departamentos</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('areasInteres.index') }}"><i class="fa fa-book fa-fw"></i> Areas de Inter&eacute;s</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('horarios.index') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -147,8 +162,20 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="{{URL::asset('assetsSidebar/vendor/metisMenu/metisMenu.min.js')}}"></script>
 
+    <script src="{{URL::asset('assetsSideBar/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{URL::asset('assetsSideBar/vendor/datatables-plugins/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{URL::asset('assetsSideBar/vendor/datatables-responsive/dataTables.responsive.js')}}"></script>
+
     <!-- Custom Theme JavaScript -->
     <script src="{{URL::asset('assetsSidebar/dist/js/sb-admin-2.js')}}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#dataTables-example').DataTable({
+                responsive: true
+            });
+        });
+    </script>
 
 </body>
 

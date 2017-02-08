@@ -6,37 +6,37 @@ class SeedHorarios extends Seeder{
 	public function run(){
 		DB::table('Horarios')->insert([
 			'idProfesor' => 1,
-			'diaDeSemana' => 3,
-			'horaInicio' => "9999-12-31 23:59:59",
-			'horaFin' => "9999-12-31 23:59:59",
+			'diaDeSemana' => "Miércoles",
+			'horaInicio' => "23:59:59",
+			'horaFin' => "23:59:59",
 		]);
 
 		DB::table('Horarios')->insert([
 			'idProfesor' => 2,
-			'diaDeSemana' => 2,
-			'horaInicio' => "9999-12-31 23:59:59",
-			'horaFin' => "9999-12-31 23:59:59",
+			'diaDeSemana' => "Martes",
+			'horaInicio' => "23:59:59",
+			'horaFin' => "23:59:59",
 		]);
 
 		DB::table('Horarios')->insert([
 			'idProfesor' => 3,
-			'diaDeSemana' => 4,
-			'horaInicio' => "9999-12-31 23:59:59",
-			'horaFin' => "9999-12-31 23:59:59",
+			'diaDeSemana' => "Jueves",
+			'horaInicio' => "23:59:59",
+			'horaFin' => "23:59:59",
 		]);
 
 		DB::table('Horarios')->insert([
 			'idProfesor' => 1,
-			'diaDeSemana' => 5,
-			'horaInicio' => "9999-12-31 23:59:59",
-			'horaFin' => "9999-12-31 23:59:59",
+			'diaDeSemana' => "Viernes",
+			'horaInicio' => "23:59:59",
+			'horaFin' => "23:59:59",
 		]);
 
 		DB::table('Horarios')->insert([
 			'idProfesor' => 3,
-			'diaDeSemana' => 6,
-			'horaInicio' => "9999-12-31 23:59:59",
-			'horaFin' => "9999-12-31 23:59:59",
+			'diaDeSemana' => "Sábado",
+			'horaInicio' => "23:59:59",
+			'horaFin' => "23:59:59",
 		]);
 	}
 }

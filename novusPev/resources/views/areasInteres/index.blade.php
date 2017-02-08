@@ -2,11 +2,11 @@
 
 @section('title')
     <div>
-        <i class="fa fa-graduation-cap"></i> Materias
+        <i class="fa fa-book"></i> Areas Inter&eacute;s
     </div>
 @endsection
 
-@section('description', 'Esta es la pagina de materias')
+@section('description', 'Esta es la pagina de areas de inter&eacute;s')
 
 @section('content')
 <div>
@@ -15,20 +15,17 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Departamento</th>
-                    <th>Acciones</th>
+                    <th>Area de Inter&eacute;s</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($materias as $materia)
+                @foreach ($areasInteres as $areaInteres)
                 <tr>
-                    <td class="center" width="5%">{{ $materia->id }} </td>
-                    <td class="center">{{ $materia->materia }}</td>
-                    <td class="center">{{ App\Departamento::find($materia->idDepartamento)->departamento }}</td>
+                    <td class="center" width="5%">{{ $areaInteres->id }} </td>
+                    <td class="center">{{ $areaInteres->AreaDeInteres }}</td>
                     <td class="center" width="10%">
                         <div class="col-xs-1 col-xs-offset-1">
-                            {!! Form::open( [ 'method' => 'DELETE', 'route'=>['materias.destroy', $materia->id]]) !!}
+                            {!! Form::open( [ 'method' => 'DELETE', 'route'=>['areasInteres.destroy', $areaInteres->id]]) !!}
                             <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                             {!! Form::close() !!}
                         </div>
@@ -38,8 +35,8 @@
             </tbody>
         </table> 
         <div align="left">
-            {!! Form::open( [ 'method' => 'GET', 'route' =>['materias.create']]) !!}
-            {!! Form::submit('Agregar un materia', ['class' => 'btn btn-success']) !!}
+            {!! Form::open( [ 'method' => 'GET', 'route' =>['areasInteres.create']]) !!}
+            {!! Form::submit('Agregar un area de interes', ['class' => 'btn btn-success']) !!}
             {!! Form::close() !!}
         </div>
     </section>
