@@ -44,7 +44,7 @@
                     <th>Email Personal</th>
                     <th>Experiencia</th>
                     <th>Director</th>
-                    <th>Areas Interes</th>
+                    <th>Areas de interes</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -62,6 +62,13 @@
                     <td class="center">{{ $profesor->experiencia }}</td>
                     <td class="center">{{ App\Director::find($profesor->idDirector)->nombre}}  {{ App\Director::find($profesor->idDirector)->apellido}}</td>
                     <td class="center">
+                    <div class="col-xs-10">
+                            {!! Form::open( [ 'method' => 'GET', 'route'=>['profesoresAreasInteres.show', $profesor->id]]) !!}
+                            <button class="btn btn-info btn-xs"><i class="fa fa-book"></i></button>
+                            {!! Form::close() !!}
+                    </div>
+                    </td>
+                    <td class="center">
                         <div class="col-xs-1">
                             {!! Form::open( [ 'method' => 'GET', 'route'=>['profesoresAreasInteres.show', $profesor->id]]) !!}
                             <button class="btn btn-info btn-xs"><i class="fa fa-book"></i></button>
@@ -74,11 +81,14 @@
                             <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
                             {!! Form::close() !!}
                         </div>
+
                         <div class="col-xs-1">
                             {!! Form::open( [ 'method' => 'DELETE', 'route'=>['profesores.destroy', $profesor->id]]) !!}
                             <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                             {!! Form::close() !!}
                         </div>
+                        
+
                     </td>
                 </tr>
                 @endforeach

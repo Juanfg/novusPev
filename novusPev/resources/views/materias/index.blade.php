@@ -16,6 +16,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Departamento</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -24,6 +25,7 @@
                 <tr>
                     <td class="center" width="5%">{{ $materia->id }} </td>
                     <td class="center">{{ $materia->materia }}</td>
+                    <td class="center">{{ App\Departamento::find($materia->idDepartamento)->departamento }}</td>
                     <td class="center" width="10%">
                         <div class="col-xs-1 col-xs-offset-1">
                             {!! Form::open( [ 'method' => 'DELETE', 'route'=>['materias.destroy', $materia->id]]) !!}

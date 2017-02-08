@@ -14,4 +14,9 @@ class Departamento extends Model
     {
     	return $this->belongsTo(Campus::class, 'idCampus');
     }
+
+    public function materias()
+    {
+    	return $this->hasMany(Materia::class, 'idDepartamento');
+    }
 }

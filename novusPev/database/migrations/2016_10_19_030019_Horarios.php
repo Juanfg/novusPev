@@ -17,9 +17,9 @@ class Horarios extends Migration
             $table->increments('id');
             $table->integer('idProfesor')->unsigned();
             $table->foreign('idProfesor')->references('id')->on('Profesores')->onDelete('cascade');
-            $table->integer('diaDeSemana');
-            $table->datetime('horaInicio');
-            $table->datetime('horaFin');
+            $table->string('diaDeSemana');
+            $table->time('horaInicio');
+            $table->time('horaFin');
             $table->timestamps();
         });
     }

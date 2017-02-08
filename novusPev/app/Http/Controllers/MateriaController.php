@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Departamento;
 use App\Materia;
 
 class MateriaController extends Controller
@@ -26,7 +27,11 @@ class MateriaController extends Controller
      */
     public function create()
     {
-        return view('materias.create');
+        $departamento = Departamento::select('departamento')->get();
+        foreach ($departamento as $dDepartamento){
+            $departamentos[] = $dDepartamento->departamento;
+        }
+        return view('materias.create', ['departamento'=>$departamentos]);
     }
 
     /**
@@ -40,13 +45,22 @@ class MateriaController extends Controller
         $message = "";
         $this->validate($request,[
             "materia" => "required|string",
+            "idDepartamento" => "required|string",
             ]);
+        $index = $request->idDepartamento;
+        $depti = Departamento::select('departamento')->get();
+
+        foreach ($depti as $dDepartamento) {
+            $departamentos[] = $dDepartamento->departamento;
+        }
+
+        $departamento = Departamento::where('departamento', $departamentos[$index])->first()->id;
 
         $alreadyExists = Materia::where('materia',$request->materia)->count();
 
         if($alreadyExists == 0){
             //no existe
-            Materia::create(["materia"=>$request->materia]);
+            Materia::create(["materia"=>$request->materia, "idDepartamento"=>$departamento]);
         }else{
             //existe
             $request->session()->flash('error', "Esta materia ya ha sido registrado");

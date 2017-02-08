@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SeedCampus::class);
         $this->call(SeedAreasInteres::class);
         $this->call(SeedIdiomas::class);
-        $this->call(SeedMaterias::class);
         $this->call(SeedDepartamentos::class);
+        $this->call(SeedMaterias::class);
         $this->call(SeedPeriodos::class);
         $this->call(SeedSemestres::class);
         $this->call(SeedDirectores::class);
@@ -27,6 +27,6 @@ class DatabaseSeeder extends Seeder
         //$this->call(SeedDirectoresDepartamento::class);
         //$this->call(SeedProfesoresDepartamento::class);
         //$this->call(SeedProfesoresIdioma::class);
-        //$this->call(SeedProfesoresAreaInteres::class);
+        $this->call(SeedProfesoresAreaInteres::class);
     }
 }

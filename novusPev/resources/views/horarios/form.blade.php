@@ -10,12 +10,12 @@
 	<div class="form-group">
 		{!! Form::label('horaInicio', 'Hora de inicio:'); !!}
 		{!! Form::text('horaInicio'); !!}
-		Utilice el formato YYYY/MM/DD h:m:s
+		Utilice el formato H:m:s
 	</div>
 	<div class="form-group">
 		{!! Form::label('horaFin', 'Hora de fin:'); !!}
 		{!! Form::text('horaFin'); !!}
-		Utilice el formato YYYY/MM/DD h:m:s
+		Utilice el formato H:m:s
 	</div>
 	<div class="form-group">
 		{!! Form::submit($submit_text, ['class'=>'btn primary btn-success']); !!}

@@ -16,6 +16,8 @@ class Materias extends Migration
         Schema::create('Materias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('materia');
+            $table->integer('idDepartamento')->unsigned();
+            $table->foreign('idDepartamento')->references('id')->on('Departamentos')->onDelete('cascade');
             $table->timestamps();
         });
     }

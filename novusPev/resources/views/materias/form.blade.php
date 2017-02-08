@@ -5,6 +5,10 @@
 		{!! Form::text('materia'); !!}
 	</div>
 	<div class="form-group">
+		{!! Form::label('idDepartamento', 'Seleccione un departamento'); !!}
+		{!! Form::select('idDepartamento', $departamento); !!}
+	</div>
+	<div class="form-group">
 		{!! Form::submit($submit_text, ['class'=>'btn primary btn-success']); !!}
 	</div>
 </div>
