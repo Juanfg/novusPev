@@ -8,6 +8,10 @@
 		{!! Form::select('idMateria', $materias); !!}
 	</div>
 	<div class="form-group">
+		{!! Form::label('grupo', 'Introduzca un grupo:'); !!}
+		{!! Form::number('grupo'); !!}
+	</div>
+	<div class="form-group">
 		{!! Form::label('idSemestre', 'Seleccione un semestre:'); !!}
 		{!! Form::select('idSemestre', $semestres); !!}
 	</div>

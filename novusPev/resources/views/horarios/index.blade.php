@@ -19,6 +19,7 @@
                     <th>Dia de la semana</th>
                     <th>Hora de inicio</th>
                     <th>Hora de fin</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>

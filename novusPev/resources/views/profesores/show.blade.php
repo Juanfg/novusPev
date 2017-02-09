@@ -13,6 +13,7 @@
 <div class="col-xs-12">
 	<img src="{{Storage::url($profesor->foto)}}" class="img-responsive col-xs-12 col-sm-4 col-sm-offset-4 img-thumbnail">
 </div>
+<p class="text-left"><strong>Nomina:</strong> {{$profesor->nomina}}</p>
 <p class="text-left"><strong>Campus:</strong> {{ App\Campus::find($profesor->campus)->nombre}}</p>
 <p class="text-left"><strong>Director:</strong> {{ App\Director::find($profesor->idDirector)->nombre}} {{App\Director::find($profesor->idDirector)->apellido}}</p>
 <p class="text-left"><strong>Pais de Origen:</strong> {{ App\Pais::find($profesor->idPaisOrigen)->nombre}}</p>

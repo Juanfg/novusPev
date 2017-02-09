@@ -65,6 +65,7 @@ class EvaluacionController extends Controller
         $this->validate($request,[
             "idProfesor" => "required|string",
             "idMateria" => "required|string",
+            "grupo" => "required|string",
             "idSemestre" => "required|string",
             "idIdioma" => "required|string",
             "calificacionPromedio" => "required|string",
@@ -111,7 +112,13 @@ class EvaluacionController extends Controller
 
         if($alreadyExists == 0){
             //no existe
-            Evaluacion::create(["idProfesor"=>$profesor, "idMateria"=>$materia, "idSemestre"=>$semestre, "idIdioma"=>$idioma, "calificacionPromedio"=>$request->calificacionPromedio]);
+            Evaluacion::create([
+                "idProfesor"=>$profesor, 
+                "idMateria"=>$materia, 
+                "grupo" =>$request->grupo,
+                "idSemestre"=>$semestre, 
+                "idIdioma"=>$idioma, 
+                "calificacionPromedio"=>$request->calificacionPromedio]);
         }else{
             //existe
             $request->session()->flash('error', "Esta evaluaci&oacute;n ya ha sido registrada");

@@ -8,7 +8,7 @@ class Director extends Model
 {
     protected $table = "Directores";
 
-    protected $fillable = ['id', 'nombre', 'apellido', 'emailItesm', 'emailPersonal', 'foto', 'campus'];
+    protected $fillable = ['id','nomina', 'nombre', 'apellido', 'emailItesm', 'emailPersonal', 'foto', 'campus'];
 
     public function profesores()
     {

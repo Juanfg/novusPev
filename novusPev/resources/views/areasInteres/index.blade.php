@@ -16,6 +16,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Area de Inter&eacute;s</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>

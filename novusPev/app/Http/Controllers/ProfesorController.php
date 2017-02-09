@@ -56,6 +56,7 @@ class ProfesorController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+            "nomina" => "required|string",
             "nombre" => "required|string",
             "apellido" => "required|string",
             "campus" => "required|string",
@@ -112,8 +113,20 @@ class ProfesorController extends Controller
 
         if($alreadyExists == 0){
             //no existe
-            Profesor::create(["nombre"=>$request->nombre, "apellido"=>$request->apellido, "idPaisOrigen"=>$paisOrigen, "idPaisResidencia"=>$paisResidencia, "link"=>"",
-            "emailItesm"=>$request->emailItesm, "emailPersonal"=>$request->emailPersonal, "foto"=>$path, "experiencia"=>$request->experiencia, "idDirector"=>$director, "campus"=>$campus]);
+            Profesor::create([
+                "nomina"=>$request->nomina, 
+                "nombre"=>$request->nombre, 
+                "apellido"=>$request->apellido, 
+                "idPaisOrigen"=>$paisOrigen, 
+                "idPaisResidencia"=>$paisResidencia, 
+                "link"=>"",
+                "emailItesm"=>$request->emailItesm, 
+                "emailPersonal"=>$request->emailPersonal, 
+                "foto"=>$path, 
+                "experiencia"=>$request->experiencia, 
+                "idDirector"=>$director, 
+                "campus"=>$campus
+            ]);
         }else{
             //existe
             $request->session()->flash('error', "Este profesor ya ha sido registrado");

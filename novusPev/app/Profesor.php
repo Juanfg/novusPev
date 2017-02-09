@@ -8,7 +8,7 @@ class Profesor extends Model
 {
     protected $table = "Profesores";
 
-    protected $fillable = ['id', 'nombre', 'apellido', 'idPaisOrigen', 'idPaisResidencia', 'link', 'emailItesm', 'emailPersonal', 'foto', 'experiencia', 'idDirector', 'campus'];
+    protected $fillable = ['id','nomina', 'nombre', 'apellido', 'idPaisOrigen', 'idPaisResidencia', 'link', 'emailItesm', 'emailPersonal', 'foto', 'experiencia', 'idDirector', 'campus'];
 
     public function director()
     {

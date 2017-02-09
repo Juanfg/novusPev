@@ -1,5 +1,9 @@
 <div class="form-panel">
 	<div class="form-group">
+		{!! Form::label('nomina', 'Nomina del Profesor:'); !!}
+		{!! Form::text('nomina'); !!}
+	</div>
+	<div class="form-group">
 		{!! Form::label('nombre', 'Nombre del Profesor:'); !!}
 		{!! Form::text('nombre'); !!}
 	</div>

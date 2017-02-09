@@ -44,6 +44,7 @@ class DirectorController extends Controller
     {
         $message = "";
         $this->validate($request,[
+            "nomina" => "required|string",
             "nombre" => "required|string",
             "apellido" => "required|string",
             "campus" => "required|string",
@@ -72,7 +73,14 @@ class DirectorController extends Controller
 
         if($alreadyExists == 0){
             //no existe
-            Director::create(["nombre"=>$request->nombre, "apellido"=>$request->apellido, "emailItesm"=>$request->emailItesm, "emailPersonal"=>$request->emailPersonal, "foto"=>$path, "campus"=>$campus]);
+            Director::create([
+                "nomina"=>$request->nomina,
+                "nombre"=>$request->nombre, 
+                "apellido"=>$request->apellido, 
+                "emailItesm"=>$request->emailItesm, 
+                "emailPersonal"=>$request->emailPersonal, 
+                "foto"=>$path, 
+                "campus"=>$campus]);
         }else{
             //existe
             $request->session()->flash('error', "Este director ya ha sido registrado");
@@ -123,6 +131,7 @@ class DirectorController extends Controller
     {
         $director = Director::where('id' , $id)->firstOrFail();
         $this->validate($request,[
+            "nomina" => "required|string",
             "nombre" => "required|string",
             "apellido" => "required|string",
             "campus" => "required|string",
