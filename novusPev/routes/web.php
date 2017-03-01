@@ -19,6 +19,15 @@ Route::group(['middleware' => 'auth'], function() {
         return view('/home');
     });
 
+    Route::group([
+            // 'prefix' => 'administrador', 
+            'middleware' => ['auth', 'acl'],
+            'is' => 'administrador',
+            ], 
+    function () {
+        Route::resource('admin', 'AdminController');
+    });
+
     Route::resource('profesores', 'ProfesorController');
 
     Route::resource('directores', 'DirectorController');

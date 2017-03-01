@@ -72,6 +72,11 @@
                         <li>
                             <a href="{{ route('/home') }}"><i class="fa fa-home fa-fw"></i> Inicio</a>
                         </li>
+                        @role('administrador')
+                        <li>
+                            <a href="{{ route('admin.index') }}"><i class="fa fa-lock fa-fw"></i> Control de usuarios</a>
+                        </li>
+                        @endrole
                         <li>
                             <a href="{{ route('profesores.index') }}"><i class="fa fa-coffee fa-fw"></i> Profesores</a>
                         </li>
