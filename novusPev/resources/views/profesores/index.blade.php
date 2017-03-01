@@ -40,10 +40,10 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Campus</th>
+                    <th>Departamento</th>
                     <th>Pais de Origen</th>
                     <th>Pais de Residencia</th>
                     <th>Email Personal</th>
-                    <th>Experiencia</th>
                     <th>Director</th>
                     <th>Areas de interes</th>
                     <th>Acciones</th>
@@ -58,10 +58,10 @@
                     <td class="center">{{ $profesor->nombre }}</td>
                     <td class="center">{{ $profesor->apellido }}</td>
                     <td class="center">{{ App\Campus::find($profesor->campus)->nombre}}</td>
+                    <td class="center">{{ App\Departamento::find(App\Director::find($profesor->idDirector)->id_departamento )->departamento }}</td>
                     <td class="center">{{ App\Pais::find($profesor->idPaisOrigen)->nombre}}</td>
                     <td class="center">{{ App\Pais::find($profesor->idPaisResidencia)->nombre}}</td>
                     <td class="center">{{ $profesor->emailPersonal }}</td>
-                    <td class="center">{{ $profesor->experiencia }}</td>
                     <td class="center">{{ App\Director::find($profesor->idDirector)->nombre}}  {{ App\Director::find($profesor->idDirector)->apellido}}</td>
                     <td class="center">
                     <div class="col-xs-10">

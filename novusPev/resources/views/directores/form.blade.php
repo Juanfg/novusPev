@@ -16,6 +16,10 @@
 		{!! Form::select('campus', $campus); !!}
 	</div>
 	<div class="form-group">
+		{!! Form::label('id_departamento', 'Seleccione un departamento'); !!}
+		{!! Form::select('id_departamento', $departamentos); !!}
+	</div>
+	<div class="form-group">
 		{!! Form::label('emailItesm', 'Email del ITESM:'); !!}
 		{!! Form::text('emailItesm'); !!}
 	</div>

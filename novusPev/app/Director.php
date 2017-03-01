@@ -8,7 +8,7 @@ class Director extends Model
 {
     protected $table = "Directores";
 
-    protected $fillable = ['id','nomina', 'nombre', 'apellido', 'emailItesm', 'emailPersonal', 'foto', 'campus'];
+    protected $fillable = ['id','nomina', 'nombre', 'apellido','id_departamento', 'emailItesm', 'emailPersonal', 'foto', 'campus'];
 
     public function profesores()
     {
@@ -17,6 +17,10 @@ class Director extends Model
 
     public function campus()
     {
-        return $this->belongsTo('App\Campus', 'id');
+        return $this->belongsTo(Campus::class, 'id');
+    }
+
+    public function departamentos(){
+        return $this->belongsTo(Departamento::class,'id');
     }
 }

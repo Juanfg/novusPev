@@ -19,4 +19,8 @@ class Departamento extends Model
     {
     	return $this->hasMany(Materia::class, 'idDepartamento');
     }
+
+    public function directores(){
+        return $this->hasOne(Director::class,'id_departamento');
+    }
 }
