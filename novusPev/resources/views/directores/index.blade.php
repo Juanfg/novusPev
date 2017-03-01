@@ -40,6 +40,7 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Campus</th>
+                    <th>Departamento</th> 
                     <th>Email Itesm</th>
                     <th>Email Personal</th>
                     <th>Acciones</th>
@@ -54,6 +55,7 @@
                     <td class="center">{{ $director->nombre }}</td>
                     <td class="center">{{ $director->apellido }}</td>
                     <td class="center">{{ App\Campus::find($director->campus)->nombre }}</td>
+                    <td class="center">{{ App\Departamento::find($director->id_departamento)->departamento }}</td>
                     <td class="center">{{ $director->emailItesm }}</td>
                     <td class="center">{{ $director->emailPersonal }}</td>
                     <td class="center" width="10%">

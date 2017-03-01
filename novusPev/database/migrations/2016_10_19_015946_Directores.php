@@ -18,6 +18,8 @@ class Directores extends Migration
             $table->string('nomina');
             $table->string('nombre');
             $table->string('apellido');
+            $table->integer('id_departamento')->unsigned();
+            $table->foreign('id_departamento')->references('id')->on('Departamentos')->onDelete('cascade');
             $table->string('emailItesm');
             $table->string('emailPersonal');
             $table->string('foto');

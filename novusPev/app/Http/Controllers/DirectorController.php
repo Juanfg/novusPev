@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Director;
 use App\Campus;
+use App\Departamento;
 
 class DirectorController extends Controller
 {
@@ -31,7 +32,14 @@ class DirectorController extends Controller
         foreach ($campus as $cnombre) {
             $nombres[] = $cnombre->nombre;
         }
-        return view('directores.create', ['campus'=>$nombres]);
+
+        $departamentos = Departamento::select('departamento')->get();
+        foreach ($departamentos as $depto) {
+            $deptos[] = $depto->departamento;
+        }
+
+        return view('directores.create', 
+            [ 'campus'=>$nombres,'departamentos'=>$deptos]);
     }
 
     /**
@@ -48,6 +56,7 @@ class DirectorController extends Controller
             "nombre" => "required|string",
             "apellido" => "required|string",
             "campus" => "required|string",
+            "id_departamento" =>"required|string",
             "emailItesm" => "required|string",
             "emailPersonal" => "required|string",
             "image" => "image",
@@ -59,16 +68,23 @@ class DirectorController extends Controller
             $path = "public/noImgUser.png";
         }
 
+        //Campus
         $index = $request->campus;
-
         $campi = Campus::select('nombre')->get();
-
         foreach ($campi as $cnombre) {
             $nombres[] = $cnombre->nombre;
         }
-
         $campus = Campus::where('nombre', $nombres[$index])->first()->id;
 
+        //Depto
+        $index = $request->id_departamento;
+        $departamentos = Departamento::select('departamento')->get();
+        foreach ($departamentos as $dep) {
+            $deptos[] = $dep->departamento;
+        }
+        $depto = Departamento::where('departamento', $deptos[$index])->first()->id;
+
+        //check for clonned mail
         $alreadyExists = Director::where('emailItesm',$request->emailItesm)->count();
 
         if($alreadyExists == 0){
@@ -77,6 +93,7 @@ class DirectorController extends Controller
                 "nomina"=>$request->nomina,
                 "nombre"=>$request->nombre, 
                 "apellido"=>$request->apellido, 
+                "id_departamento"=>$depto,
                 "emailItesm"=>$request->emailItesm, 
                 "emailPersonal"=>$request->emailPersonal, 
                 "foto"=>$path, 
@@ -116,8 +133,18 @@ class DirectorController extends Controller
         foreach ($campus as $cnombre) {
             $nombres[] = $cnombre->nombre;
         }
+
         $director = Director::where('id', $id)->firstOrFail();
-        return view('directores.edit', ['director' => $director, 'campus'=>$nombres]);
+
+        //Depto
+        
+        $departamentos = Departamento::select('departamento')->get();
+        foreach ($departamentos as $dep) {
+            $deptos[] = $dep->departamento;
+        }
+
+
+        return view('directores.edit', ['director' => $director, 'campus'=>$nombres, 'departamentos'=>$deptos]);
     }
 
     /**
@@ -135,6 +162,7 @@ class DirectorController extends Controller
             "nombre" => "required|string",
             "apellido" => "required|string",
             "campus" => "required|string",
+            "id_departamento" =>"required|string",
             "emailItesm" => "required|string",
             "emailPersonal" => "required|string",
             "foto" => "image",
@@ -145,17 +173,25 @@ class DirectorController extends Controller
             $updating['foto'] = $request->image->store("public");
         }
 
+        //Campus
         $index = $request->campus;
-
         $campi = Campus::select('nombre')->get();
-
         foreach ($campi as $cnombre) {
             $nombres[] = $cnombre->nombre;
         }
-
         $campus = Campus::where('nombre', $nombres[$index])->first()->id;
-
         $updating['campus'] = $campus;
+
+        //Depto
+        $index = $request->id_departamento;
+        $departamentos = Departamento::select('departamento')->get();
+        foreach ($departamentos as $dep) {
+            $deptos[] = $dep->departamento;
+        }
+        $depto = Departamento::where('departamento', $deptos[$index])->first()->id;
+
+        //If fails,change to departamento/id_departamento?
+        $updating['id_departamento'] = $depto;
 
         $alreadyExists = Director::where('emailItesm',$request->emailItesm)->where('id', '<>' ,$id)->count();
 

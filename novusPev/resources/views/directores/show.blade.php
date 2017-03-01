@@ -15,6 +15,7 @@
 </div>
 <p class="text-left"><strong>Nomina:</strong> {{$director->nomina}}</p>
 <p class="text-left"><strong>Campus:</strong> {{ App\Campus::find($director->campus)->nombre}}</p>
+<p class="text-left"><strong>Departamento:</strong> {{ App\Departamento::find($director->id_departamento)->departamento}}</p>
 <p class="text-left"><strong>Email del ITESM:</strong> {{$director->emailItesm}}</p>
 <p class="text-left"><strong>Email Personal:</strong> {{$director->emailPersonal}}</p>
 <br>

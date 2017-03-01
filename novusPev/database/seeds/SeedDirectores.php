@@ -11,7 +11,8 @@ class SeedDirectores extends Seeder{
 			'emailItesm' => "gerardo_muniz@itesm.mx",
 			'emailPersonal' => "Desconocido",
 			'foto' => "public/GMR.jpg",
-			'campus' => 15,		
+			'campus' => 15,
+			'id_departamento' => 1,		
 
 		]);
 
@@ -23,6 +24,7 @@ class SeedDirectores extends Seeder{
 			'emailPersonal' => "Desconocido",
 			'foto' => "public/noImgUser.png",
 			'campus' => 17,		
+			'id_departamento' => 2,
 
 		]);
 
@@ -33,7 +35,8 @@ class SeedDirectores extends Seeder{
 			'emailItesm' => "anzuresgurria@itesm.mx",
 			'emailPersonal' => "Desconocido",
 			'foto' => "public/JJAG.jpg",
-			'campus' => 17,		
+			'campus' => 17,	
+			'id_departamento' => 3,	
 
 		]);
 	}
