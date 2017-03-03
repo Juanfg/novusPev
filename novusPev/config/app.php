@@ -183,6 +183,11 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
 
+        /*
+         Acl provider  
+        */
+        Kodeine\Acl\AclServiceProvider::class,        
+
     ],
 
     /*
