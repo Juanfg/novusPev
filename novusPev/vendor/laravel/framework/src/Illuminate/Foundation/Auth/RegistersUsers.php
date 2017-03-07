@@ -5,7 +5,6 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
-use Kodeine\Acl\Models\Eloquent\Role;
 
 trait RegistersUsers
 {
@@ -58,7 +57,6 @@ trait RegistersUsers
      */
     protected function registered(Request $request, $user)
     {
-        $usuario_normal = Role::where('slug', 'usuario_normal')->first();
-        !$usuario_normal ? : $user->assignRole('usuario_normal');
+        //
     }
 }
