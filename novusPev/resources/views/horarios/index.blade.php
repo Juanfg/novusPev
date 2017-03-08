@@ -27,8 +27,8 @@
                     <td class="center" width="5%">{{ $horario->id }} </td>
                     <td class="center">{{ App\Profesor::find($horario->idProfesor)->nombre}} {{ App\Profesor::find($horario->idProfesor)->apellido}}</td>
                     <td class="center">{{ $horario->diaDeSemana }}</td>
-                    <td class="center">{{ $horario->horaInicio }}</td>
-                    <td class="center">{{ $horario->horaFin }}</td>
+                    <td class="center"> <?php echo $horario->horaInicio->setTimezone('America/Mexico_City')->toCookieString() ?> </td>
+                    <td class="center"><?php echo $horario->horaFin->setTimezone('America/Mexico_City')->toCookieString() ?></td>
                     <td class="center" width="10%">
                         <div class="col-xs-1 col-xs-offset-1">
                             {!! Form::open( [ 'method' => 'DELETE', 'route'=>['horarios.destroy', $horario->id]]) !!}

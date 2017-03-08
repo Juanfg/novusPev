@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('paises', 'PaisController');
 
-<<<<<<< HEAD
+
 
     Route::resource('areasInteres', 'AreaInteresController');
 
@@ -35,10 +35,10 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('horarios', 'HorarioController');
 
-=======
+
     Route::resource('departamentos', 'DepartamentoController');
   
->>>>>>> origin/master
+
     Route::resource('idiomas', 'IdiomaController');
 
     Route::resource('materias', 'MateriaController');

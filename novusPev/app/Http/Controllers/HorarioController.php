@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Horario;
 use App\Profesor;
+use Carbon\Carbon;
+use App\User;
 
 class HorarioController extends Controller
 {

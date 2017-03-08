@@ -15,6 +15,7 @@ class SeedUsuarios extends Seeder
             'name' => 'Novus1',
             'email' => 'novus1@gmail.com',
             'password' => bcrypt('secret'),
+            'timezone' => ' 	America/Mexico_City',
         ]);
     }
 }
