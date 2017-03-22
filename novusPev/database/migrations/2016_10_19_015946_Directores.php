@@ -25,6 +25,8 @@ class Directores extends Migration
             $table->string('foto');
             $table->integer('campus')->unsigned();
             $table->foreign('campus')->references('id')->on('Campus')->onDelete('cascade');
+            $table->integer('user')->unsigned()->nullable();
+            $table->foreign('user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

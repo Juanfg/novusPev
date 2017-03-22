@@ -20,7 +20,13 @@ class Director extends Model
         return $this->belongsTo(Campus::class, 'id');
     }
 
-    public function departamentos(){
+    public function departamentos()
+    {
         return $this->belongsTo(Departamento::class,'id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'id');
     }
 }

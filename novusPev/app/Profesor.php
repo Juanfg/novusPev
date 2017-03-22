@@ -48,4 +48,9 @@ class Profesor extends Model
     public function idiomas(){
         return $this->belongsToMany('App\Idioma', 'ProfesoresIdioma', 'idProfesor','idIdioma');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'id');
+    }
 }

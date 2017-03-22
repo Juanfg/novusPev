@@ -18,12 +18,26 @@ class AdminController extends Controller
     {
         return view('Admin.index', ['usuarios' => User::all()]);
     }
-
-    public function assignRole(Request $request)
+    
+    public function assignRoles(Request $request)
     {
-
+        $usuario = User::where('email', $request['email'])->first();
+        $roles = Role::select('slug')->get();
+        foreach ($roles as $role) 
+        {
+            if ($request[($role->slug)])
+            {
+                if (!$usuario->hasRole($role->slug))
+                    $usuario->assignRole($role->slug);
+            }
+            else
+            {
+                if ($usuario->hasRole($role->slug))
+                    $usuario->revokeRole($role->slug);
+            }
+        }
+        return redirect()->route('admin.index');
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -43,17 +57,6 @@ class AdminController extends Controller
     public function store(Request $request)
     {
 
-        $usuario = User::where('email', $request['email'])->first();
-        $usuario->revokeAllRoles();
-        if ($request['administrador'])
-            $usuario->assignRole('administrador');
-        if ($request['director'])
-            $usuario->assignRole('director');
-        if ($request['pev'])
-            $usuario->assignRole('pev');
-        if ($request['usuario_normal'])
-            $usuario->assignRole('usuario_normal');
-        return redirect()->route('admin.index');
     }
 
     /**
