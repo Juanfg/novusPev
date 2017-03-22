@@ -49,7 +49,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::group([
     'middleware' => ['auth', 'acl'],
-        'is' => 'administrador|director|profesor'
+        'is' => 'administrador|director|pev'
     ], function() {
         Route::resource('profesores', 'ProfesorController');
         Route::resource('profesoresAreasInteres', 'ProfesoresAreaDeInteresController');

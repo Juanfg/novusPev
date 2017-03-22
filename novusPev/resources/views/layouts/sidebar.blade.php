@@ -77,7 +77,7 @@
                                 <a href="{{ route('admin.index') }}"><i class="fa fa-lock fa-fw"></i> Control de usuarios</a>
                             </li>
                         @endrole
-                        @role('administrador|director|profesor')
+                        @role('administrador|director|pev')
                             <li>
                                 <a href="{{ route('profesores.index') }}"><i class="fa fa-coffee fa-fw"></i> Profesores</a>
                             </li>
