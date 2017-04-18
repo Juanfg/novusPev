@@ -73,49 +73,53 @@
                             <a href="{{ route('/home') }}"><i class="fa fa-home fa-fw"></i> Inicio</a>
                         </li>
                         @role('administrador')
-                        <li>
-                            <a href="{{ route('admin.index') }}"><i class="fa fa-lock fa-fw"></i> Control de usuarios</a>
-                        </li>
+                            <li>
+                                <a href="{{ route('admin.index') }}"><i class="fa fa-lock fa-fw"></i> Control de usuarios</a>
+                            </li>
                         @endrole
-                        <li>
-                            <a href="{{ route('profesores.index') }}"><i class="fa fa-coffee fa-fw"></i> Profesores</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('directores.index') }}"><i class="fa fa-user fa-fw"></i> Directores</i></a>
-                        </li>
-                        <li>
-                            <a href="{{ route('campus.index') }}"><i class="fa fa-university fa-fw"></i> Campus</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('paises.index') }}"><i class="fa fa-globe fa-fw"></i> Paises</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('areasInteres.index') }}"><i class="fa fa-book fa-fw"></i> Areas de Inter&eacute;s</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('horarios.index') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('idiomas.index') }}"><i class="fa fa-language fa-fw"></i> Idiomas</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('materias.index') }}"><i class="fa fa-graduation-cap fa-fw"></i> Materias</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('periodos.index') }}"><i class="fa fa-calendar-o fa-fw"></i> Periodos</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('semestres.index') }}"><i class="fa fa-calendar fa-fw"></i> Semestres</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('evaluaciones.index') }}"><i class="fa fa-check fa-fw"></i> Evaluaciones</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('departamentos.index') }}"><i class="fa fa-building fa-fw"></i> Departamentos</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('horarios.index') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
-                        </li>
+                        @role('administrador|director|pev')
+                            <li>
+                                <a href="{{ route('profesores.index') }}"><i class="fa fa-coffee fa-fw"></i> Profesores</a>
+                            </li>
+                        @endrole
+                        @role('administrador|director')
+                            <li>
+                                <a href="{{ route('directores.index') }}"><i class="fa fa-user fa-fw"></i> Directores</i></a>
+                            </li>
+                            <li>
+                                <a href="{{ route('campus.index') }}"><i class="fa fa-university fa-fw"></i> Campus</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('paises.index') }}"><i class="fa fa-globe fa-fw"></i> Paises</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('areasInteres.index') }}"><i class="fa fa-book fa-fw"></i> Areas de Inter&eacute;s</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('horarios.index') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('idiomas.index') }}"><i class="fa fa-language fa-fw"></i> Idiomas</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('materias.index') }}"><i class="fa fa-graduation-cap fa-fw"></i> Materias</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('periodos.index') }}"><i class="fa fa-calendar-o fa-fw"></i> Periodos</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('semestres.index') }}"><i class="fa fa-calendar fa-fw"></i> Semestres</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('evaluaciones.index') }}"><i class="fa fa-check fa-fw"></i> Evaluaciones</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('departamentos.index') }}"><i class="fa fa-building fa-fw"></i> Departamentos</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('horarios.index') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
+                            </li>
+                        @endrole
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

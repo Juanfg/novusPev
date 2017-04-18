@@ -44,4 +44,9 @@ class Profesor extends Model
     {
         return $this->belongsToMany('App\Idioma', 'idioma_profesor');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'id');
+    }
 }
