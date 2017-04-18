@@ -35,6 +35,6 @@ class CreateDirectoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('directores');
+        Schema::drop('directores');
     }
 }

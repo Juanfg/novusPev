@@ -8,15 +8,15 @@ class Pais extends Model
 {
     protected $table = "Paises";
 
-    protected $fillable = ['id', 'nombre'];
+    protected $fillable = ['nombre', 'activo'];
 
-    public function profesoresOrigenes()
+    public function profesoresDeOrigen()
     {
-        return $this->hasMany(Profesor::class, 'idPaisOrigen');
+        return $this->hasMany('App\Profesor', 'pais_origen_id');
     }
 
-    public function profesoresResidencias()
+    public function profesoresDeResidencia()
     {
-        return $this->hasMany(Profesor::class, 'idPaisResidencia');
+        return $this->hasMany('App\Profesor', 'pais_residencia_id');
     }
 }

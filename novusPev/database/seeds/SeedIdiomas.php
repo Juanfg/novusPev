@@ -5,33 +5,36 @@ use Illuminate\Database\Seeder;
 class SeedIdiomas extends Seeder{
 	public function run(){
 		DB::table('Idiomas')->insert([
-			'idioma' => "Espanol",			
-
+			'nombre' => "Espanol",			
+			'activo' => true,
 		]);
 		DB::table('Idiomas')->insert([
-			'idioma' => "Ingles",			
-
+			'nombre' => "Ingles",			
+			'activo' => true,
 		]);
 		DB::table('Idiomas')->insert([
-			'idioma' => "Frances",			
-
+			'nombre' => "Frances",			
+			'activo' => true,
 		]);
 		DB::table('Idiomas')->insert([
-			'idioma' => "Italiano",			
-
+			'nombre' => "Italiano",			
+			'activo' => true,
 		]);
 		DB::table('Idiomas')->insert([
-			'idioma' => "Aleman",			
-
+			'nombre' => "Aleman",			
+			'activo' => true,
 		]);
 		DB::table('Idiomas')->insert([
-			'idioma' => "Japones",			
+			'nombre' => "Japones",
+			'activo' => true,			
 		]);
 		DB::table('Idiomas')->insert([
-			'idioma' => "Ruso",			
+			'nombre' => "Ruso",
+			'activo' => true,			
 		]);
 		DB::table('Idiomas')->insert([
-			'idioma' => "Chino",			
+			'nombre' => "Chino",
+			'activo' => true,			
 		]);
 	}
 }

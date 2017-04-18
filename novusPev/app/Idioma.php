@@ -6,16 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Idioma extends Model
 {
-    protected $table = "Idiomas";
-
-    protected $fillable = ['id', 'idioma'];
+    protected $fillable = ['idioma', 'activo'];
 
     public function evaluaciones()
     {
-        return $this->hasMany(Evaluacion::class, 'idIdioma');
+        return $this->hasMany('App\Evaluacion');
     }
 
-    public function profesores(){
-    	return $this->belongsToMany('App\Profesor');
+    public function profesores()
+    {
+    	return $this->belongsToMany('App\Profesor', 'idioma_profesor');
     }
 }

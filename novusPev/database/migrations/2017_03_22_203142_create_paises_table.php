@@ -28,6 +28,6 @@ class CreatePaisesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExist('paises');
+        Schema::drop('paises');
     }
 }

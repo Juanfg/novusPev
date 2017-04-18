@@ -6,46 +6,42 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profesor extends Model
 {
-    protected $table = "Profesores";
+    protected $table = 'profesores';
 
-    protected $fillable = ['id','nomina', 'nombre', 'apellido', 'idPaisOrigen', 'idPaisResidencia', 'link', 'emailItesm', 'emailPersonal', 'foto', 'experiencia', 'idDirector', 'campus'];
+    protected $fillable = ['id','nomina', 'nombre', 'apellido', 'email_itesm', 'email_personal', 'pais_origen', 'pais_residencia', 'foto', 'experiencia', 'zona_horaria', 'activo'];
 
-    public function director()
+    public function departamento()
     {
-    	return $this->belongsTo(Director::class, 'idDirector');
+    	return $this->belongsToMany('App\Departamento', 'departamento_profesor');
     }
 
     public function evaluaciones()
     {
-        return $this->hasMany(Evaluacion::class, 'idProfesor');
-    }
-
-    public function profesoresAreasDeInteres()
-    {
-        return $this->hasMany(ProfesorAreaInteres::class, 'idProfesor');
+        return $this->hasMany('App\Evaluacion');
     }
 
     public function paisDeOrigen()
     {
-        return $this->belongsTo(Pais::class, 'idPaisOrigen');
+        return $this->belongsTo('App\Pais', 'pais_origen_id');
     }
 
-    public function paisResidencia()
+    public function paisDeResidencia()
     {
-        return $this->belongsTo(Pais::class, 'idPaisResidencia');
+        return $this->belongsTo('App\Pais', 'pais_residencia_id');
     }
 
     public function campus()
     {
-        return $this->belongsTo('App\Campus', 'id');
+        //
     }
 
     public function horarios()
     {
-        return $this->hasMany(Horario::class, 'idProfesor');
+        return $this->belongsToMany('App\Horario', 'horario_profesor');
     }
 
-    public function idiomas(){
-        return $this->belongsToMany('App\Idioma', 'ProfesoresIdioma', 'idProfesor','idIdioma');
+    public function idiomas()
+    {
+        return $this->belongsToMany('App\Idioma', 'idioma_profesor');
     }
 }

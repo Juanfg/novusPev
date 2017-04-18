@@ -28,6 +28,6 @@ class CreateCampusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campus');
+        Schema::drop('campus');
     }
 }

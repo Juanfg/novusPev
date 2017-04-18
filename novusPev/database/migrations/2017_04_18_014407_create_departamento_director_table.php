@@ -32,6 +32,6 @@ class CreateDepartamentoDirectorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departamento_director');
+        Schema::drop('departamento_director');
     }
 }

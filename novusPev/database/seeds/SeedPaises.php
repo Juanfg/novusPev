@@ -5,43 +5,53 @@ use Illuminate\Database\Seeder;
 class SeedPaises extends Seeder{
 	public function run(){
 		DB::table('Paises')->insert([
-			'nombre' => "Mexico"		
+			'nombre' => "Mexico",
+			'activo' => true,	
 		]);
 
 		DB::table('Paises')->insert([
-			'nombre' => "USA"		
+			'nombre' => "USA",
+			'activo' => true,	
 		]);
 
 		DB::table('Paises')->insert([
-			'nombre' => "Canada"		
+			'nombre' => "Canada",
+			'activo' => true,	
 		]);
 
 		DB::table('Paises')->insert([
-			'nombre' => "Italia"		
+			'nombre' => "Italia",
+			'activo' => true,	
 		]);
 
 		DB::table('Paises')->insert([
-			'nombre' => "Francia"		
+			'nombre' => "Francia",
+			'activo' => true,
 		]);
 
 		DB::table('Paises')->insert([
-			'nombre' => "Alemania"		
+			'nombre' => "Alemania",
+			'activo' => true,	
 		]);
 
 		DB::table('Paises')->insert([
-			'nombre' => "Inglaterra"		
+			'nombre' => "Inglaterra",
+			'activo' => true,	
 		]);
 
 		DB::table('Paises')->insert([
-			'nombre' => "Japon"		
+			'nombre' => "Japon"	,
+			'activo' => true,
 		]);
 
 		DB::table('Paises')->insert([
-			'nombre' => "Rusia"		
+			'nombre' => "Rusia",
+			'activo' => true,
 		]);
 
 		DB::table('Paises')->insert([
-			'nombre' => "China"		
+			'nombre' => "China",
+			'activo' => true,
 		]);
 
 

@@ -28,6 +28,6 @@ class CreateIdiomasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExist('idiomas');
+        Schema::drop('idiomas');
     }
 }

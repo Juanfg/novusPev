@@ -30,6 +30,6 @@ class CreateSemestresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('semestres');
+        Schema::drop('semestres');
     }
 }

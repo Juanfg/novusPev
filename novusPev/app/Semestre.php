@@ -6,17 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Semestre extends Model
 {
-    protected $table = "Semestres";
-
-    protected $fillable = ['id', 'idPeriodo', 'anio'];
+    protected $fillable = ['anio', 'periodo_id', 'activo'];
 
     public function evaluaciones()
     {
-        return $this->hasMany(Evaluacion::class, 'idSemestre');
+        return $this->hasMany('App\Evaluacion');
     }
 
     public function periodo()
     {
-        return $this->belongsTo(Periodo::class, 'idPeriodo');
+        return $this->belongsTo('App\Periodo');
+    }
+
+    public function departamentos()
+    {
+        return $this->belongsToMany('App\Departamento', 'departamento_director');
     }
 }

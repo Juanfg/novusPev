@@ -30,6 +30,6 @@ class CreateCampusDepartamentoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campus_departamento');
+        Schema::drop('campus_departamento');
     }
 }

@@ -30,6 +30,6 @@ class CreateIdiomaProfesorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('idioma_profesor');
+        Schema::drop('idioma_profesor');
     }
 }

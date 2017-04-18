@@ -30,6 +30,6 @@ class CreateHorarioProfesorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('horario_profesor');
+        Schema::drop('horario_profesor');
     }
 }

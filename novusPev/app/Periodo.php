@@ -6,12 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Periodo extends Model
 {
-    protected $table = "Periodos";
-
-    protected $fillable = ['id', 'periodo'];
+    protected $fillable = ['nombre', 'activo'];
 
     public function semestres()
     {
-        return $this->hasMany(Semestre::class, 'idPeriodo');
+        return $this->hasMany('App\Semestre');
     }
 }
