@@ -6,23 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Director extends Model
 {
-    protected $table = "Directores";
+    protected $table = "directores";
 
-    protected $fillable = ['id','nomina', 'nombre', 'apellido','id_departamento', 'emailItesm', 'emailPersonal', 'foto', 'campus'];
-
-    public function profesores()
-    {
-    	return $this->hasMany(Profesor::class, 'idDirector');
-    }
-
+    protected $fillable = ['id','nomina', 'nombre', 'apellido','campus_id', 'email_itesm', 'email_personal', 'foto', 'activo'];
+    
     public function campus()
     {
-        return $this->belongsTo(Campus::class, 'id');
+        return $this->belongsTo('App\Campus');
     }
 
     public function departamentos()
     {
-        return $this->belongsTo(Departamento::class,'id');
+        return $this->belongsToMany('App\Departamento', 'departamento_director')->withPivot('semestre_id');
     }
 
     public function user()

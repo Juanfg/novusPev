@@ -53,7 +53,5 @@ class SeedPaises extends Seeder{
 			'nombre' => "China",
 			'activo' => true,
 		]);
-
-
 	}
 }

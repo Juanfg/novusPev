@@ -12,12 +12,7 @@ class Campus extends Model
 
     public function departamentos()
     {
-    	return $this->belongsToMany('App\Departamentos', 'campus_departamento');
-    }
-
-    public function profesores()
-    {
-        return $this->hasMany(Profesor::class, 'campus');
+    	return $this->belongsToMany('App\Departamento', 'campus_departamento');
     }
 
     public function directores()

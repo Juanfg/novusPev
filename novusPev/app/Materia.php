@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Materia extends Model
 {
-    protected $table = "Materias";
+    protected $table = "materias";
 
-    protected $fillable = ['id', 'materia', 'idDepartamento'];
+    protected $fillable = ['id', 'clave', 'nombre', 'departamento_id', 'activo'];
 
     public function evaluaciones()
     {
-        return $this->hasMany(Evaluacion::class, 'idMateria');
+        return $this->hasMany('App\Evaluacion');
     }
 
-    public function departamentos()
+    public function departamento()
     {
-    	return $this->belongsTo(Departamento::class, 'idDepartamento');
+    	return $this->belongsTo('App\Departamento');
     }
 }
