@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
  
 class Horario extends Model
 {
-    protected $table = "Horarios";
+    protected $table = "horarios";
  
-    protected $fillable = ['id', 'idProfesor', 'diaDeSemana', 'horaInicio', 'horaFin'];
+    protected $fillable = ['id', 'hora_inicio', 'hora_fin', 'dia_semana', 'activo'];
  
-    public function profesor()
+    public function profesores()
     {
-        return $this->belongsTo(Profesor::class, 'idProfesor');
+        return $this->belongsToMany('App\Profesor', 'horario_profesor');
     }
 }

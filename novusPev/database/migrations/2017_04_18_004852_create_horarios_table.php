@@ -17,7 +17,7 @@ class CreateHorariosTable extends Migration
             $table->increments('id');
             $table->time('hora_inicio');
             $table->time('hora_fin');
-            $table->enum('dia_semana', ['Lunes','Martes','Miercoles','Jueves','Viernes']);
+            $table->enum('dia_semana', ['Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo']);
             $table->boolean('activo');
             $table->timestamps();
         });

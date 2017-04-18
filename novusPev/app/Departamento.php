@@ -6,21 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Departamento extends Model
 {
-   protected $table = "Departamentos";
+   protected $table = "departamentos";
 
-    protected $fillable = ['id', 'departamento', 'idCampus'];
+    protected $fillable = ['id', 'nombre', 'activo'];
 
     public function campus()
     {
-    	return $this->belongsTo(Campus::class, 'idCampus');
+    	return $this->belongsToMany('App\Campus', 'campus_departamentos');
     }
 
     public function materias()
     {
-    	return $this->hasMany(Materia::class, 'idDepartamento');
+    	return $this->hasMany('App\Materia');
     }
 
     public function directores(){
-        return $this->hasOne(Director::class,'id_departamento');
+        return $this->belongsToMany('App\Director','departamento_director')->withPivot('semestre_id');
+    }
+
+    public function profesores(){
+        return $this->belongsToMany('App\Profesor','departamento_director');
     }
 }

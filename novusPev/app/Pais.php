@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pais extends Model
 {
-    protected $table = "Paises";
+    protected $table = "paises";
 
-    protected $fillable = ['id', 'nombre'];
+    protected $fillable = ['id', 'nombre', 'activo'];
 
     public function profesoresOrigenes()
     {
-        return $this->hasMany(Profesor::class, 'idPaisOrigen');
+        return $this->hasMany('App\Profesor', 'pais_origen_id');
     }
 
     public function profesoresResidencias()
     {
-        return $this->hasMany(Profesor::class, 'idPaisResidencia');
+        return $this->hasMany('App\Profesor', 'pais_residencia_id');
     }
 }
