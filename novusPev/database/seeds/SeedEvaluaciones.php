@@ -5,21 +5,21 @@ use Illuminate\Database\Seeder;
 class SeedEvaluaciones extends Seeder{
 	public function run(){
 		DB::table('Evaluaciones')->insert([
-			'idProfesor' => 1,
-			'idMateria' => 2,
+			'idioma_id' => 2,
+			'profesor_id' => 1,
+			'materia_id' => 2,
+			'semestre_id' => 3,
 			'grupo' => 1,
-			'idSemestre' => 3,
-			'idIdioma' => 2,
-			'calificacionPromedio' => 89.5,
+			'calificacion' => 89.5,
 		]);
 
 		DB::table('Evaluaciones')->insert([
-			'idProfesor' => 2,
-			'idMateria' => 3,
+			'idioma_id' => 5,
+			'profesor_id' => 2,
+			'materia_id' => 3,
+			'semestre_id' => 1,
 			'grupo' => 3,
-			'idSemestre' => 1,
-			'idIdioma' => 5,
-			'calificacionPromedio' => 98.2,
+			'calificacion' => 98.2,
 		]);
 	}
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Periodos extends Migration
+class CreateHorariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class Periodos extends Migration
      */
     public function up()
     {
-        Schema::create('Periodos', function (Blueprint $table) {
+        Schema::create('horarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('periodo');
+            $table->time('hora_inicio');
+            $table->time('hora_fin');
+            $table->enum('dia_semana', ['Lunes','Martes','Miercoles','Jueves','Viernes']);
+            $table->boolean('activo');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class Periodos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Periodos');
+        Schema::dropIfExists('horarios');
     }
 }

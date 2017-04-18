@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Horarios extends Migration
+class CreateSemestresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class Horarios extends Migration
      */
     public function up()
     {
-        Schema::create('Horarios', function (Blueprint $table) {
+        Schema::create('semestres', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idProfesor')->unsigned();
-            $table->foreign('idProfesor')->references('id')->on('Profesores')->onDelete('cascade');
-            $table->string('diaDeSemana');
-            $table->time('horaInicio');
-            $table->time('horaFin');
+            $table->integer('anio');
+            $table->integer('periodo_id')->unsigned();
+            $table->foreign('periodo_id')->references('id')->on('periodos')->onDelete('cascade');
+            $table->boolean('activo');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class Horarios extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Horarios');
+        Schema::dropIfExists('semestres');
     }
 }

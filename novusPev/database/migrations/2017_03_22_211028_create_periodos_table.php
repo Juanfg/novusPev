@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Semestres extends Migration
+class CreatePeriodosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class Semestres extends Migration
      */
     public function up()
     {
-        Schema::create('Semestres', function (Blueprint $table) {
+        Schema::create('periodos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idPeriodo')->unsigned();
-            $table->foreign('idPeriodo')->references('id')->on('Periodos')->onDelete('cascade');
-            $table->string('anio');
+            $table->string('nombre');
+            $table->boolean('activo');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class Semestres extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Semestres');
+        Schema::dropIfExists('periodos');
     }
 }

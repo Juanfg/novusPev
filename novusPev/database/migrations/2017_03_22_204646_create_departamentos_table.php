@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AreasInteres extends Migration
+class CreateDepartamentosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AreasInteres extends Migration
      */
     public function up()
     {
-        Schema::create('AreasInteres', function (Blueprint $table) {
+        Schema::create('departamentos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('AreaDeInteres');
+            $table->string('nombre');
+            $table->boolean('activo');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class AreasInteres extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('AreasInteres');
+        Schema::dropIfExists('departamentos');
     }
 }

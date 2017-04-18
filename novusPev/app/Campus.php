@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Campus extends Model
 {
-    protected $table = "Campus";
+    protected $table = "campus";
 
-    protected $fillable = ['id', 'nombre'];
+    protected $fillable = ['id', 'nombre', 'activo'];
 
     public function departamentos()
     {
-    	return $this->hasMany(Departamento::class, 'idCampus');
+    	return $this->belongsToMany('App\Departamentos', 'campus_departamento');
     }
 
     public function profesores()
