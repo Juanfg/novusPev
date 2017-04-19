@@ -6,6 +6,25 @@
     </div>
 @endsection
 
+@if (session('deleted'))
+    <div class="alert alert-warning">
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ session('deleted') }}
+    </div>
+@endif
+@if (session('failDeleted'))
+    <div class="alert alert-danger">
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ session('failDeleted') }}
+    </div>
+@endif
+@if (session('message'))
+    <div class = "alert alert-success" class = "close">
+        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ session('message') }}
+    </div>
+@endif
+
 @section('description', 'Esta es la pagina de evaluaciones')
 
 @section('content')
@@ -20,7 +39,7 @@
                     <th>Grupo</th>
                     <th>Semestre</th>
                     <th>Idioma</th>
-                    <th>Promedio</th>
+                    <th>Calificacion Promedio</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -28,12 +47,12 @@
                 @foreach ($evaluaciones as $evaluacion)
                 <tr>
                     <td class="center" width="5%">{{ $evaluacion->id }} </td>
-                    <td class="center">{{ App\Profesor::find($evaluacion->idProfesor)->nombre}} {{ App\Profesor::find($evaluacion->idProfesor)->apellido}}</td>
-                    <td class="center">{{ App\Materia::find($evaluacion->idMateria)->materia}}</td>
+                    <td class="center">{{ $evaluacion->profesor->nombre }} {{ $evaluacion->profesor->apellido }}</td>
+                    <td class="center">{{ $evaluacion->materia->nombre }} </td>
                     <td class="center">{{ $evaluacion->grupo }}</td>
-                    <td class="center">{{ App\Periodo::find(App\Semestre::find($evaluacion->idSemestre)->idPeriodo)->periodo . " " . App\Semestre::find($evaluacion->idSemestre)->anio}}</td>
-                    <td class="center">{{ App\Idioma::find($evaluacion->idIdioma)->idioma}}</td>
-                    <td class="center">{{ $evaluacion->calificacionPromedio }}</td>
+                    <td class="center">{{ $evaluacion->semestre->periodo->nombre }} {{ $evaluacion->semestre->anio }}</td>
+                    <td class="center">{{ $evaluacion->idioma->nombre }}</td>
+                    <td class="center">{{ $evaluacion->calificacion }}</td>
                     <td class="center" width="10%">
                         <div class="col-xs-1 col-xs-offset-1">
                             {!! Form::open( [ 'method' => 'DELETE', 'route'=>['evaluaciones.destroy', $evaluacion->id]]) !!}

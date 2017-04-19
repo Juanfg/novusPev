@@ -19,7 +19,7 @@ class SeedCampusProfesor extends Seeder
 
 		DB::table('campus_profesor')->insert([
 			'campus_id' => 2,
-			'profesor_id' => 1,
+			'profesor_id' => 2,
             'semestre_id' => 3,
 		]);
 

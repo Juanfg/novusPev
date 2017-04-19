@@ -36,19 +36,19 @@ class EvaluacionController extends Controller
             $nombres_profesores[] = $profesor->nombre . " " . $profesor->apellido;
         }
 
-        $materias = Materia::select('materia')->get();
+        $materias = Materia::select('nombre')->get();
         foreach ($materias as $materia) {
-            $nombres_materias[] = $materia->materia;
+            $nombres_materias[] = $materia->nombre;
         }
 
         $semestres = Semestre::all();
         foreach ($semestres as $semestre){
-            $nombres_semestres[] = Periodo::find($semestre->idPeriodo)->periodo . " " . $semestre->anio;
+            $nombres_semestres[] = $semestre->periodo->nombre . " " . $semestre->anio;
         }
 
-        $idiomas = Idioma::select('idioma')->get();
+        $idiomas = Idioma::select('nombre')->get();
         foreach ($idiomas as $idioma) {
-            $nombres_idiomas[] = $idioma->idioma;
+            $nombres_idiomas[] = $idioma->nombre;
         }
 
         return  view('evaluaciones.create', ['profesores'=>$nombres_profesores, 'materias'=>$nombres_materias, 'semestres'=>$nombres_semestres, 'idiomas'=>$nombres_idiomas]);
@@ -78,18 +78,18 @@ class EvaluacionController extends Controller
 
         $materias = Materia::all();
         foreach ($materias as $materia) {
-            $nombres_materias[] = $materia->materia;
+            $nombres_materias[] = $materia->nombre;
         }
 
         $semestres = Semestre::all();
         foreach ($semestres as $semestre){
-            $periodos[] = $semestre->idPeriodo;
+            $periodos[] = $semestre->periodo_id;
             $anios[] = $semestre->anio;
         }
 
         $idiomas = Idioma::all();
         foreach ($idiomas as $idioma) {
-            $nombres_idiomas[] = $idioma->idioma;
+            $nombres_idiomas[] = $idioma->nombre;
         }
 
         $index = $request->idProfesor;
@@ -98,27 +98,29 @@ class EvaluacionController extends Controller
 
         $index = $request->idMateria;
 
-        $materia = Materia::where('materia', $nombres_materias[$index])->first()->id;
+        $materia = Materia::where('nombre', $nombres_materias[$index])->first()->id;
 
         $index = $request->idSemestre;
 
-        $semestre = Semestre::where([ ['idPeriodo', $periodos[$index]], ['anio', $anios[$index]] ])->first()->id;
+        $semestre = Semestre::where([ ['periodo_id', $periodos[$index]], ['anio', $anios[$index]] ])->first()->id;
 
         $index = $request->idIdioma;
 
-        $idioma = Idioma::where('idioma', $nombres_idiomas[$index])->first()->id;
+        $idioma = Idioma::where('nombre', $nombres_idiomas[$index])->first()->id;
 
-        $alreadyExists = Evaluacion::where([  ['idProfesor', $profesor], ['idMateria', $materia], ['idSemestre', $semestre] ])->count();
+        $alreadyExists = Evaluacion::where([  ['profesor_id', $profesor], ['materia_id', $materia], ['semestre_id', $semestre] ])->count();
 
         if($alreadyExists == 0){
             //no existe
             Evaluacion::create([
-                "idProfesor"=>$profesor, 
-                "idMateria"=>$materia, 
+                "profesor_id"=>$profesor, 
+                "materia_id"=>$materia, 
                 "grupo" =>$request->grupo,
-                "idSemestre"=>$semestre, 
-                "idIdioma"=>$idioma, 
-                "calificacionPromedio"=>$request->calificacionPromedio]);
+                "semestre_id"=>$semestre, 
+                "idioma_id"=>$idioma, 
+                "calificacion"=>$request->calificacionPromedio,
+                "activo"=>true
+            ]);
         }else{
             //existe
             $request->session()->flash('error', "Esta evaluaci&oacute;n ya ha sido registrada");
@@ -180,6 +182,6 @@ class EvaluacionController extends Controller
         else{
             $request->session()->flash("failDeleted", "Algo sali&oacute; mal. Por favor contacta a desarrollo.");
         }
-        return redirect()->route("profesores.index");
+        return redirect()->route("evaluaciones.index");
     }
 }

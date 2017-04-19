@@ -53,10 +53,10 @@
                     <td>{{ $profesor->nomina }}</td>
                     <td>{{ $profesor->nombre }}</td>
                     <td>{{ $profesor->apellido }}</td>
-                    <td>{{ $profesor->departamento }}</td>
-                    <td>{{ $profesor->pais_de_origen }}</td>
+                    <td>{{ $profesor->departamentos[0]->nombre }}</td>
+                    <td>{{ $profesor->paisDeOrigen->nombre }}</td>
                     <td>{{ $profesor->email_personal }}</td>
-                    <td>{{ $profesor->director }}</td>
+                    <td>{{ $profesor->departamentos[0]->directores[0]->nombre }} {{ $profesor->departamentos[0]->directores[0]->apellido }}</td>
                     </td>
                     
                     <td class="text-center">

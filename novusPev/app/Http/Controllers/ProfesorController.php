@@ -22,16 +22,7 @@ class ProfesorController extends Controller
      */
     public function index()
     {
-        $profesores = Profesor::all();
-        foreach ($profesores as $profesor)
-        {
-            $departamento = Profesor::find($profesor->id)->departamentos()->get();
-            $profesor->departamento = $departamento[0]->nombre;
-            $profesor->pais_de_origen = Profesor::find($profesor->id)->paisDeOrigen()->get()[0]->nombre;
-            $director = Departamento::find($departamento[0]->id)->directores()->get();
-            $profesor->director = $director[0]->nombre . " " . $director[0]->apellido;
-        }
-        return view('profesores.index', ['profesores' => $profesores]);
+        return view('profesores.index', ['profesores' => Profesor::all()]);
     }
 
     /**
