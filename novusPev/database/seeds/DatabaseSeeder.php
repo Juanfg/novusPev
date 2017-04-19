@@ -19,14 +19,15 @@ class DatabaseSeeder extends Seeder
         $this->call(SeedIdiomas::class);
         $this->call(SeedDepartamentos::class);
         $this->call(SeedMaterias::class);
-        // $this->call(SeedPeriodos::class);
-        // $this->call(SeedSemestres::class);
+        $this->call(SeedPeriodos::class);
+        $this->call(SeedSemestres::class);
         $this->call(SeedDirectores::class);
         $this->call(SeedProfesores::class);
-        // $this->call(SeedEvaluaciones::class);
+        $this->call(SeedEvaluaciones::class);
         $this->call(SeedHorarios::class);
-        //$this->call(SeedDirectoresDepartamento::class);
-        //$this->call(SeedProfesoresDepartamento::class);
+        $this->call(SeedDirectoresDepartamento::class);
+        $this->call(SeedProfesoresDepartamento::class);
         $this->call(SeedProfesoresIdioma::class);
+        $this->call(SeedProfesoresHorario::class);
     }
 }

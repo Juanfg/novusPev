@@ -10,7 +10,7 @@ class Profesor extends Model
 
     protected $fillable = ['id','nomina', 'nombre', 'apellido', 'email_itesm', 'email_personal', 'pais_origen', 'pais_residencia', 'foto', 'experiencia', 'zona_horaria', 'activo'];
 
-    public function departamento()
+    public function departamentos()
     {
     	return $this->belongsToMany('App\Departamento', 'departamento_profesor');
     }

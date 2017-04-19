@@ -3,15 +3,19 @@
 use Illuminate\Database\Seeder;
 
 class SeedPeriodos extends Seeder{
+
 	public function run(){
 		DB::table('Periodos')->insert([
-			'periodo' => 'Enero-Mayo',
+			'nombre' => 'Enero-Mayo',
+			'activo' => true,
 		]);
 		DB::table('Periodos')->insert([
-			'periodo' => 'Junio-Julio',
+			'nombre' => 'Junio-Julio',
+			'activo' => true,
 		]);
 		DB::table('Periodos')->insert([
-			'periodo' => 'Agosto-Diciembre',
+			'nombre' => 'Agosto-Diciembre',
+			'activo' => true,
 		]);
 	}
 }

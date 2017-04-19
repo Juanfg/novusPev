@@ -11,6 +11,7 @@ class SeedEvaluaciones extends Seeder{
 			'semestre_id' => 3,
 			'grupo' => 1,
 			'calificacion' => 89.5,
+			'activo' => true,
 		]);
 
 		DB::table('Evaluaciones')->insert([
@@ -20,6 +21,7 @@ class SeedEvaluaciones extends Seeder{
 			'semestre_id' => 1,
 			'grupo' => 3,
 			'calificacion' => 98.2,
+			'activo' => true,
 		]);
 	}
 }

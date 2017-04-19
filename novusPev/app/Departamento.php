@@ -20,11 +20,18 @@ class Departamento extends Model
     	return $this->hasMany('App\Materia');
     }
 
-    public function directores(){
+    public function directores()
+    {
         return $this->belongsToMany('App\Director','departamento_director')->withPivot('semestre_id');
     }
 
-    public function profesores(){
-        return $this->belongsToMany('App\Profesor','departamento_director');
+    public function profesores()
+    {
+        return $this->belongsToMany('App\Profesor','departamento_profesor');
+    }
+
+    public function semestres()
+    {
+        return $this->belongsToMany('App\Semestre', 'departamento_director');
     }
 }
