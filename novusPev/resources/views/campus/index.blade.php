@@ -14,21 +14,19 @@
         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
+                    <th>Campus</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($campus as $c)
                 <tr>
-                    <td class="center" width="5%">{{ $c->id }} </td>
-                    <td class="center">{{ $c->nombre }}</td>
-                    <td class="center" width="10%">
-                        <div class="col-xs-1 col-xs-offset-1">
+                    <td>{{ $c->nombre }}</td>
+                    <td width="10%">
+                        <div class="text-center">
                         {!! Form::open( [ 'method' => 'DELETE', 'route'=>['campus.destroy', $c->id]]) !!}
-                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                            {!! Form::close() !!}
+                        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                        {!! Form::close() !!}
                         </div>
                     </td>
                 </tr>

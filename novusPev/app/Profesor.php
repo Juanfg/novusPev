@@ -32,7 +32,7 @@ class Profesor extends Model
 
     public function campus()
     {
-        //
+        return $this->belongsToMany('App\Campus','campus_profesor')->withPivot('semestre_id');
     }
 
     public function horarios()

@@ -30,23 +30,19 @@
 @section('content')
 <div>
     <section>
-        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Departamento</th>
-                    <th>Campus</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($departamentos as $departamento)
                 <tr>
-                    <td class="center">{{ $departamento->id }} </td>
-                    <td class="center">{{ $departamento->departamento }}</td>
-                    <td class="center">{{ App\Campus::find($departamento->idCampus)->nombre }}</td>
-                    <td class="center" width="10%">
-                        <div class="col-xs-1 col-xs-offset-1">
+                    <td><a href="{{ route('departamentos.show', [ $departamento->id]) }}">{{ $departamento->nombre }}</td>
+                    <td class="text-center" width="10%">
+                        <div class="col-xs-1">
                             {!! Form::open( [ 'method' => 'GET', 'route'=>['departamentos.edit', $departamento->id]]) !!}
                                 <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
                             {!! Form::close() !!}

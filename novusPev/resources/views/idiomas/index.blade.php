@@ -14,18 +14,16 @@
         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
+                    <th>Idioma</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($idiomas as $idioma)
                 <tr>
-                    <td class="center" width="5%">{{ $idioma->id }} </td>
-                    <td class="center">{{ $idioma->idioma }}</td>
-                    <td class="center" width="10%">
-                        <div class="col-xs-1 col-xs-offset-1">
+                    <td>{{ $idioma->nombre }}</td>
+                    <td width="10%">
+                        <div class="text-center">
                             {!! Form::open( [ 'method' => 'DELETE', 'route'=>['idiomas.destroy', $idioma->id]]) !!}
                             <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                             {!! Form::close() !!}

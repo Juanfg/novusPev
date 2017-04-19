@@ -16,23 +16,20 @@
 		{!! Form::select('campus', $campus); !!}
 	</div>
 	<div class="form-group">
-		{!! Form::label('id_departamento', 'Seleccione un departamento'); !!}
-		{!! Form::select('id_departamento', $departamentos); !!}
-	</div>
-	<div class="form-group">
 		{!! Form::label('emailItesm', 'Email del ITESM:'); !!}
-		{!! Form::text('emailItesm'); !!}
+		{!! Form::text('email_itesm'); !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('emailPersonal', 'Email Personal'); !!}
-		{!! Form::text('emailPersonal'); !!}
+		{!! Form::text('email_personal'); !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('foto', 'Si quiere agregar un archivo haga click aqui:'); !!}
-		{!! Form::file('image') !!}
+		{!! Form::file('foto') !!}
 	</div>
 	<div class="form-group">
-		{!! Form::submit($submit_text, ['class'=>'btn primary btn-success']); !!}
+		{!! Form::submit($submit_text, ['class'=>'btn btn-success']); !!}
+		<a class="btn btn-danger" href="{{ route('directores.index') }}">Cancelar</a>
 	</div>
 </div>
 {!! Form::close() !!}

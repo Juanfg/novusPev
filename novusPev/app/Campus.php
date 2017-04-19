@@ -19,4 +19,9 @@ class Campus extends Model
     {
         return $this->hasMany('App\Director');
     }
+
+    public function profesores()
+    {
+        return $this->belongsToMany('App\Profesor', 'campus_profesor')->withPivot('semestre_id');
+    }
 }

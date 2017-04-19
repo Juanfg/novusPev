@@ -49,17 +49,17 @@
             <tbody>
                 @foreach ($profesores as $profesor)
                 <tr>
-                    <td class="center"><a href="{{ route('profesores.show', [ $profesor->id]) }}"><img src="{{Storage::url($profesor->foto)}}" width=80 height=80 class="img-responsive img-thumbnail"></td>
-                    <td class="center">{{ $profesor->nomina }}</td>
-                    <td class="center">{{ $profesor->nombre }}</td>
-                    <td class="center">{{ $profesor->apellido }}</td>
-                    <td class="center">{{ $profesor->departamento }}</td>
-                    <td class="center">{{ $profesor->pais_de_origen }}</td>
-                    <td class="center">{{ $profesor->email_personal }}</td>
-                    <td class="center">{{ $profesor->director }}</td>
+                    <td><a href="{{ route('profesores.show', [ $profesor->id]) }}"><img src="{{Storage::url($profesor->foto)}}" width=80 height=80 class="img-responsive img-thumbnail"></td>
+                    <td>{{ $profesor->nomina }}</td>
+                    <td>{{ $profesor->nombre }}</td>
+                    <td>{{ $profesor->apellido }}</td>
+                    <td>{{ $profesor->departamento }}</td>
+                    <td>{{ $profesor->pais_de_origen }}</td>
+                    <td>{{ $profesor->email_personal }}</td>
+                    <td>{{ $profesor->director }}</td>
                     </td>
                     
-                    <td class="center">
+                    <td class="text-center">
                         <div class="col-xs-1">
                             {!! Form::open( [ 'method' => 'GET', 'route'=>['profesores.edit', $profesor->id]]) !!}
                             <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
