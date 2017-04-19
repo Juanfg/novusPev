@@ -11,10 +11,6 @@
 		{!! Form::label('apellido', 'Apellido del Profesor:'); !!}
 		{!! Form::text('apellido'); !!}
 	</div>
-	<div class="form-group">
-		{!! Form::label('campus', 'Seleccione un campus:'); !!}
-		{!! Form::select('campus', $campus); !!}
-	</div>
     <div class="form-group">
         {!! Form::label('idPaisOrigen', 'Seleccione el pais de origen:'); !!}
         {!! Form::select('idPaisOrigen', $paises); !!}
@@ -25,19 +21,19 @@
     </div>
 	<div class="form-group">
 		{!! Form::label('emailItesm', 'Email del ITESM:'); !!}
-		{!! Form::text('emailItesm'); !!}
+		{!! Form::text('email_itesm'); !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('emailPersonal', 'Email Personal:'); !!}
-		{!! Form::text('emailPersonal'); !!}
+		{!! Form::text('email_personal'); !!}
 	</div>
     <div class="form-group">
         {!! Form::label('experiencia', 'Experiencia:'); !!}
         {!! Form::text('experiencia'); !!}
     </div>
     <div class="form-group">
-        {!! Form::label('idDirector', 'Director:'); !!}
-        {!! Form::select('idDirector', $nombresDirectores); !!}
+        {!! Form::label('idDepartamento', 'Departamento:'); !!}
+        {!! Form::select('idDepartamento', $nombresDepartamentos); !!}
     </div>
     <div class="form-group">
 		{!! Form::label('foto', 'Si quiere agregar un archivo haga click aqui:'); !!}

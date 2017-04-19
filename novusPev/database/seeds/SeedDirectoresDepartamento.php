@@ -21,6 +21,24 @@ class SeedDirectoresDepartamento extends Seeder{
 			'director_id' => 3,
 			'semestre_id' => 3,
 		]);
+
+		DB::table('departamento_director')->insert([
+			'departamento_id' => 4,
+			'director_id' => 3,
+			'semestre_id' => 3,
+		]);
+
+		DB::table('departamento_director')->insert([
+			'departamento_id' => 5,
+			'director_id' => 3,
+			'semestre_id' => 3,
+		]);
+		
+		DB::table('departamento_director')->insert([
+			'departamento_id' => 6,
+			'director_id' => 3,
+			'semestre_id' => 3,
+		]);
 	}
 }
 

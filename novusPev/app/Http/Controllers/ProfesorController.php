@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
 use App\Profesor;
 use App\Campus;
 use App\Pais;
 use App\Director;
+use App\Departamento;
 
 class ProfesorController extends Controller
 {
@@ -19,7 +22,16 @@ class ProfesorController extends Controller
      */
     public function index()
     {
-        return view('profesores.index', ['profesores' => Profesor::all()]);
+        $profesores = Profesor::all();
+        foreach ($profesores as $profesor)
+        {
+            $departamento = Profesor::find($profesor->id)->departamentos()->get();
+            $profesor->departamento = $departamento[0]->nombre;
+            $profesor->pais_de_origen = Profesor::find($profesor->id)->paisDeOrigen()->get()[0]->nombre;
+            $director = Departamento::find($departamento[0]->id)->directores()->get();
+            $profesor->director = $director[0]->nombre . " " . $director[0]->apellido;
+        }
+        return view('profesores.index', ['profesores' => $profesores]);
     }
 
     /**
@@ -29,22 +41,22 @@ class ProfesorController extends Controller
      */
     public function create()
     {
-        $campus = Campus::select('nombre')->get();
-        foreach ($campus as $cnombre) {
-            $nombres_campus[] = $cnombre->nombre;
-        }
+        // $campus = Campus::select('nombre')->get();
+        // foreach ($campus as $cnombre) {
+        //     $nombres_campus[] = $cnombre->nombre;
+        // }
 
         $paises = Pais::select('nombre')->get();
         foreach ($paises as $pais){
             $nombres_paises[] = $pais->nombre;
         }
-        
-        $directores = Director::select('nombre', 'apellido')->get();
-        foreach ($directores as $director){
-            $nombres_directores[] = $director->nombre . " " . $director->apellido;
+
+        $departamentos = Departamento::select('nombre')->get();
+        foreach ($departamentos as $departamento) {
+            $nombres_departamentos[] = $departamento->nombre;
         }
 
-        return  view('profesores.create', ['campus'=>$nombres_campus, 'paises'=>$nombres_paises, 'nombresDirectores'=>$nombres_directores]);
+        return  view('profesores.create', ['paises'=>$nombres_paises, 'nombresDepartamentos'=>$nombres_departamentos]);
     }
 
     /**
@@ -59,13 +71,13 @@ class ProfesorController extends Controller
             "nomina" => "required|string",
             "nombre" => "required|string",
             "apellido" => "required|string",
-            "campus" => "required|string",
+            // "campus" => "required|string",
             "idPaisOrigen" => "required|string",
             "idPaisResidencia" => "required|string",
-            "emailItesm" => "required|string",
-            "emailPersonal" => "required|string",
+            "email_itesm" => "required|string",
+            "email_personal" => "required|string",
             "experiencia" => "required|string",
-            "idDirector" => "required|string",
+            "idDepartamento" => "required|string",
             "image" => "image",
             ]);
 
@@ -74,16 +86,6 @@ class ProfesorController extends Controller
         }else{ 
             $path = "public/noImgUser.png";
         }
-
-        $index = $request->campus;
-
-        $campi = Campus::select('nombre')->get();
-
-        foreach ($campi as $cnombre) {
-            $nombres[] = $cnombre->nombre;
-        }
-
-        $campus = Campus::where('nombre', $nombres[$index])->first()->id;
 
         $nombres = [];
         $index = $request->idPaisOrigen;
@@ -99,33 +101,37 @@ class ProfesorController extends Controller
         $paisResidencia = Pais::where('nombre', $nombres[$index])->first()->id;
 
         $nombres = [];
-        $index = $request->idDirector;
+        $index = $request->idDepartamento;
 
-        $directores = Director::select('nombre')->get();
+        $departamentos = Departamento::select('nombre')->get();
 
-        foreach ($directores as $director) {
-            $nombres[] = $director->nombre;
+        foreach ($departamentos as $departamento) {
+            $nombres[] = $departamento->nombre;
         }
 
-        $director = Director::where('nombre', $nombres[$index])->first()->id;
+        $departamento = Departamento::where('nombre', $nombres[$index])->first()->id;
 
-        $alreadyExists = Director::where('emailItesm',$request->emailItesm)->count();
+        $alreadyExists = Profesor::where('email_itesm',$request->emailItesm)->count();
 
         if($alreadyExists == 0){
             //no existe
-            Profesor::create([
+            $profesor = Profesor::create([
                 "nomina"=>$request->nomina, 
                 "nombre"=>$request->nombre, 
                 "apellido"=>$request->apellido, 
-                "idPaisOrigen"=>$paisOrigen, 
-                "idPaisResidencia"=>$paisResidencia, 
-                "link"=>"",
-                "emailItesm"=>$request->emailItesm, 
-                "emailPersonal"=>$request->emailPersonal, 
-                "foto"=>$path, 
+                "email_itesm"=>$request->emailItesm, 
+                "email_personal"=>$request->emailPersonal, 
                 "experiencia"=>$request->experiencia, 
-                "idDirector"=>$director, 
-                "campus"=>$campus
+                "foto"=>$path, 
+                "pais_origen_id"=>$paisOrigen, 
+                "pais_residencia_id"=>$paisResidencia, 
+                "zona_horaria"=>"Mexico",
+                "activo" => true
+            ]);
+            echo $profesor;
+            DB::table('departamento_profesor')->insert([
+                "departamento_id" => $departamento,
+                "profesor_id" => $profesor->id
             ]);
         }else{
             //existe
@@ -157,20 +163,20 @@ class ProfesorController extends Controller
      */
     public function edit($id)
     {
-        $campus = Campus::select('nombre')->get();
-        foreach ($campus as $cnombre) {
-            $nombres_campus[] = $cnombre->nombre;
-        }
+        // $campus = Campus::select('nombre')->get();
+        // foreach ($campus as $cnombre) {
+        //     $nombres_campus[] = $cnombre->nombre;
+        // }
         $paises = Pais::select('nombre')->get();
         foreach ($paises as $pais) {
             $nombres_paises[] = $pais->nombre;
         }
-        $directores = Director::select('nombre', 'apellido')->get();
-        foreach ($directores as $director) {
-            $nombres_directores[] = $director->nombre . " " . $director->apellido;
+        $departamentos = Departamento::select('nombre')->get();
+        foreach ($departamentos as $departamento) {
+            $nombres_departamentos[] = $departamento->nombre;
         }
         $profesor = Profesor::where('id', $id)->firstOrFail();
-        return view('profesores.edit', ['profesor' => $profesor, 'campus'=>$nombres_campus, 'paises'=>$nombres_paises, 'nombresDirectores'=>$nombres_directores]);
+        return view('profesores.edit', ['profesor' => $profesor, 'paises'=>$nombres_paises, 'nombresDepartamentos'=>$nombres_departamentos]);
     }
 
     /**
@@ -184,15 +190,15 @@ class ProfesorController extends Controller
     {
         $profesor = Profesor::where('id' , $id)->firstOrFail();
         $this->validate($request,[
+            "nomina" => 'required|string',
             "nombre" => "required|string",
             "apellido" => "required|string",
-            "campus" => "required|string",
             "idPaisOrigen" => "required|string",
             "idPaisResidencia" => "required|string",
-            "emailItesm" => "required|string",
-            "emailPersonal" => "required|string",
+            "email_itesm" => "required|string",
+            "email_personal" => "required|string",
             "experiencia" => "required|string",
-            "idDirector" => "required|string",
+            "idDepartamento" => "required|string",
             "image" => "image",
         ]);
 
@@ -200,18 +206,6 @@ class ProfesorController extends Controller
         if ($request->hasFile('foto')){
             $updating['foto'] = $request->image->store("public");
         }
-
-        $index = $request->campus;
-
-        $campi = Campus::select('nombre')->get();
-
-        foreach ($campi as $cnombre) {
-            $nombres[] = $cnombre->nombre;
-        }
-
-        $campus = Campus::where('nombre', $nombres[$index])->first()->id;
-
-        $updating['campus'] = $campus;
 
         $nombres = [];
         $index = $request->idPaisOrigen;
@@ -226,23 +220,22 @@ class ProfesorController extends Controller
         $index = $request->idPaisResidencia;
         $paisResidencia = Pais::where('nombre', $nombres[$index])->first()->id;
 
-        $updating['idPaisOrigen'] = $paisOrigen;
-        $updating['idPaisResidencia'] = $paisResidencia;
+        $updating['pais_origen_id'] = $paisOrigen;
+        $updating['pais_residencia_id'] = $paisResidencia;
 
         $nombres = [];
-        $index = $request->idDirector;
+        $index = $request->idDepartamento;
 
-        $directores = Director::select('nombre')->get();
+        $departamentos = Departamento::select('nombre')->get();
 
-        foreach ($directores as $director) {
-            $nombres[] = $director->nombre;
+        foreach ($departamentos as $departamento) {
+            $nombres[] = $departamento->nombre;
         }
 
-        $director = Director::where('nombre', $nombres[$index])->first()->id;
+        // TODO: ACTUALIZAR TABLA INTERMEDIA
+        $departamento = Departamento::where('nombre', $nombres[$index])->first()->id;
 
-        $updating['idDirector'] = $director;
-
-        $alreadyExists = Profesor::where('emailItesm',$request->emailItesm)->where('id', '<>' ,$id)->count();
+        $alreadyExists = Profesor::where('email_itesm',$request->emailItesm)->where('id', '<>' ,$id)->count();
 
         if($alreadyExists == 0){
         //no existe

@@ -34,41 +34,29 @@
         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Foto</th>
                     <th>Nomina</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    <th>Campus</th>
+                    <!--<th>Campus</th>-->
                     <th>Departamento</th>
                     <th>Pais de Origen</th>
-                    <th>Pais de Residencia</th>
                     <th>Email Personal</th>
                     <th>Director</th>
-                    <th>Areas de interes</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($profesores as $profesor)
                 <tr>
-                    <td class="center">{{ $profesor->id }} </td>
                     <td class="center"><a href="{{ route('profesores.show', [ $profesor->id]) }}"><img src="{{Storage::url($profesor->foto)}}" width=80 height=80 class="img-responsive img-thumbnail"></td>
                     <td class="center">{{ $profesor->nomina }}</td>
                     <td class="center">{{ $profesor->nombre }}</td>
                     <td class="center">{{ $profesor->apellido }}</td>
-                    <td class="center">{{ App\Campus::find($profesor->campus)->nombre}}</td>
-                    <td class="center">{{ App\Departamento::find(App\Director::find($profesor->idDirector)->id_departamento )->departamento }}</td>
-                    <td class="center">{{ App\Pais::find($profesor->idPaisOrigen)->nombre}}</td>
-                    <td class="center">{{ App\Pais::find($profesor->idPaisResidencia)->nombre}}</td>
-                    <td class="center">{{ $profesor->emailPersonal }}</td>
-                    <td class="center">{{ App\Director::find($profesor->idDirector)->nombre}}  {{ App\Director::find($profesor->idDirector)->apellido}}</td>
-                    <td class="center">
-                    <div class="col-xs-10">
-                            {!! Form::open( [ 'method' => 'GET', 'route'=>['profesoresAreasInteres.show', $profesor->id]]) !!}
-                            <button class="btn btn-info btn-xs"><i class="fa fa-book"></i></button>
-                            {!! Form::close() !!}
-                    </div>
+                    <td class="center">{{ $profesor->departamento }}</td>
+                    <td class="center">{{ $profesor->pais_de_origen }}</td>
+                    <td class="center">{{ $profesor->email_personal }}</td>
+                    <td class="center">{{ $profesor->director }}</td>
                     </td>
                     
                     <td class="center">
