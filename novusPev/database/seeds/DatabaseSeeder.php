@@ -30,5 +30,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SeedProfesoresIdioma::class);
         $this->call(SeedProfesoresHorario::class);
         $this->call(SeedCampusProfesor::class);
+        $this->call(SeedCampusDepartamento::class);
     }
 }

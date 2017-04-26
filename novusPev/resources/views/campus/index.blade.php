@@ -6,15 +6,13 @@
     </div>
 @endsection
 
-@section('description', 'Esta es la pagina de campus')
-
 @section('content')
 <div>
     <section>
         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
                 <tr>
-                    <th>Campus</th>
+                    <th>Nombre</th>
                     <th>Acciones</th>
                 </tr>
             </thead>

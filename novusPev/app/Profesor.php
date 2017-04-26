@@ -12,7 +12,7 @@ class Profesor extends Model
 
     public function departamentos()
     {
-    	return $this->belongsToMany('App\Departamento', 'departamento_profesor');
+    	return $this->belongsToMany('App\Departamento', 'departamento_profesor')->withPivot('semestre_id');
     }
 
     public function evaluaciones()

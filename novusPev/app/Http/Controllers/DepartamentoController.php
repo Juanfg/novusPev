@@ -79,7 +79,7 @@ class DepartamentoController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('departamentos.show', ['departamento' => Departamento::find($id)]);
     }
 
     /**

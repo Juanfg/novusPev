@@ -19,6 +19,8 @@ class CreateDepartamentoProfesorTable extends Migration
             $table->foreign('departamento_id')->references('id')->on('departamentos')->onDelete('cascade');
             $table->integer('profesor_id')->unsigned();
             $table->foreign('profesor_id')->references('id')->on('profesores')->onDelete('cascade');
+            $table->integer('semestre_id')->unsigned();
+            $table->foreign('semestre_id')->references('id')->on('semestres')->onDelete('cascade');
             $table->timestamps();
         });
     }

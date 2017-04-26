@@ -18,21 +18,21 @@
 <p class="text-left"><strong>Email del ITESM:</strong> {{$director->email_itesm}}</p>
 <p class="text-left"><strong>Email Personal:</strong> {{$director->email_personal}}</p>
 <table class="table table-striped table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>Semestre</th>
-                    <th>Departamento</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($director->departamentos as $departamento)
-                <tr>
-                    <td>{{ App\Semestre::find($departamento->pivot->semestre_id)->periodo->nombre . " - " . App\Semestre::find($departamento->pivot->semestre_id)->anio }}</td>
-                    <td>{{ $departamento->nombre }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+	<thead>
+		<tr>
+			<th>Semestre</th>
+			<th>Departamento</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach ($director->departamentos as $departamento)
+		<tr>
+			<td>{{ App\Semestre::find($departamento->pivot->semestre_id)->periodo->nombre . " - " . App\Semestre::find($departamento->pivot->semestre_id)->anio }}</td>
+			<td>{{ $departamento->nombre }}</td>
+		</tr>
+		@endforeach
+	</tbody>
+</table>
 <br>
 <div class="col-md-12">
 	<div class="col-md-4">

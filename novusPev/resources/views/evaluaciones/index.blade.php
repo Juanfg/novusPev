@@ -46,15 +46,15 @@
             <tbody>
                 @foreach ($evaluaciones as $evaluacion)
                 <tr>
-                    <td class="center" width="5%">{{ $evaluacion->id }} </td>
-                    <td class="center">{{ $evaluacion->profesor->nombre }} {{ $evaluacion->profesor->apellido }}</td>
-                    <td class="center">{{ $evaluacion->materia->nombre }} </td>
-                    <td class="center">{{ $evaluacion->grupo }}</td>
-                    <td class="center">{{ $evaluacion->semestre->periodo->nombre }} {{ $evaluacion->semestre->anio }}</td>
-                    <td class="center">{{ $evaluacion->idioma->nombre }}</td>
-                    <td class="center">{{ $evaluacion->calificacion }}</td>
-                    <td class="center" width="10%">
-                        <div class="col-xs-1 col-xs-offset-1">
+                    <td width="5%">{{ $evaluacion->id }} </td>
+                    <td>{{ $evaluacion->profesor->nombre }} {{ $evaluacion->profesor->apellido }}</td>
+                    <td>{{ $evaluacion->materia->clave }} </td>
+                    <td>{{ $evaluacion->grupo }}</td>
+                    <td>{{ $evaluacion->semestre->periodo->nombre }} {{ $evaluacion->semestre->anio }}</td>
+                    <td>{{ $evaluacion->idioma->nombre }}</td>
+                    <td>{{ $evaluacion->calificacion }}</td>
+                    <td class="text-center" width="10%">
+                        <div class="col-xs-1">
                             {!! Form::open( [ 'method' => 'DELETE', 'route'=>['evaluaciones.destroy', $evaluacion->id]]) !!}
                             <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                             {!! Form::close() !!}

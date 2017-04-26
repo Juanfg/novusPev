@@ -20,6 +20,6 @@ class Semestre extends Model
 
     public function departamentos()
     {
-        return $this->belongsToMany('App\Departamento', 'departamento_director');
+        return $this->belongsToMany('App\Departamento', 'departamento_director', 'semestre_id', 'departamento_id')->withPivot('director_id');
     }
 }

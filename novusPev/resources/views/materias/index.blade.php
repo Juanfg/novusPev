@@ -14,7 +14,7 @@
         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Clave</th>
                     <th>Nombre</th>
                     <th>Departamento</th>
                     <th>Acciones</th>
@@ -23,11 +23,11 @@
             <tbody>
                 @foreach ($materias as $materia)
                 <tr>
-                    <td class="center" width="5%">{{ $materia->id }} </td>
-                    <td class="center">{{ $materia->materia }}</td>
-                    <td class="center">{{ App\Departamento::find($materia->idDepartamento)->departamento }}</td>
-                    <td class="center" width="10%">
-                        <div class="col-xs-1 col-xs-offset-1">
+                    <td>{{ $materia->clave }} </td>
+                    <td>{{ $materia->nombre }}</td>
+                    <td>{{ $materia->departamento->nombre }}</td>
+                    <td class="text-center" width="10%">
+                        <div class="col-xs-1">
                             {!! Form::open( [ 'method' => 'DELETE', 'route'=>['materias.destroy', $materia->id]]) !!}
                             <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                             {!! Form::close() !!}

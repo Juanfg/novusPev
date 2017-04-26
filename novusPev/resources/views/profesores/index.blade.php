@@ -53,10 +53,10 @@
                     <td>{{ $profesor->nomina }}</td>
                     <td>{{ $profesor->nombre }}</td>
                     <td>{{ $profesor->apellido }}</td>
-                    <td>{{ $profesor->departamentos[0]->nombre }}</td>
+                    <td>{{ $profesor->departamentos->first()->nombre }}</td>
                     <td>{{ $profesor->paisDeOrigen->nombre }}</td>
                     <td>{{ $profesor->email_personal }}</td>
-                    <td>{{ $profesor->departamentos[0]->directores[0]->nombre }} {{ $profesor->departamentos[0]->directores[0]->apellido }}</td>
+                    <td><a href="{{ route('directores.show', [$profesor->departamentos->first()->directores->first()->id]) }}"><img src="{{Storage::url($profesor->departamentos->first()->directores->first()->foto)}}" width=80 height=80 class="img-responsive img-thumbnail"></td>
                     </td>
                     
                     <td class="text-center">

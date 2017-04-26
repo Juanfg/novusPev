@@ -14,7 +14,6 @@
         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nombre</th>
                     <th>Acciones</th>
                 </tr>
@@ -22,10 +21,9 @@
             <tbody>
                 @foreach ($periodos as $periodo)
                 <tr>
-                    <td class="center" width="5%">{{ $periodo->id }} </td>
-                    <td class="center">{{ $periodo->periodo }}</td>
-                    <td class="center" width="10%">
-                        <div class="col-xs-1 col-xs-offset-1">
+                    <td>{{ $periodo->nombre }}</td>
+                    <td class="text-center" width="10%">
+                        <div>
                             {!! Form::open( [ 'method' => 'DELETE', 'route'=>['periodos.destroy', $periodo->id]]) !!}
                             <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                             {!! Form::close() !!}

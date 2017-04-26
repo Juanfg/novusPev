@@ -6,8 +6,6 @@
     </div>
 @endsection
 
-@section('description', 'Esta es la pagina de departamentos')
-
 @if (session('deleted'))
     <div class="alert alert-warning">
         <a class="close" data-dismiss="alert" aria-label="close">&times;</a>

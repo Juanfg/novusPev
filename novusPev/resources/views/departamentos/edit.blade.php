@@ -6,8 +6,6 @@
 	</div>
 @endsection
 
-@section('description', 'En esta sección podrás editar departamentos')
-
 @if (session('error'))
 <div class="alert alert-danger">
 	<a class="close" data-dismiss="alert" aria-label="close">&times;</a>

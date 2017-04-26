@@ -7,8 +7,6 @@
     </div>
 @endsection
 
-@section('description', 'Esta es la pagina de campus')
-
 @section('content')
 
 @if (session('message'))

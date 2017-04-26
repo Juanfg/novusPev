@@ -93,9 +93,6 @@
                                 <a href="{{ route('paises.index') }}"><i class="fa fa-globe fa-fw"></i> Paises</a>
                             </li>
                             <li>
-                                <a href="{{ route('horarios.index') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
-                            </li>
-                            <li>
                                 <a href="{{ route('idiomas.index') }}"><i class="fa fa-language fa-fw"></i> Idiomas</a>
                             </li>
                             <li>
@@ -112,9 +109,6 @@
                             </li>
                             <li>
                                 <a href="{{ route('departamentos.index') }}"><i class="fa fa-building fa-fw"></i> Departamentos</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('horarios.index') }}"><i class="fa fa-clock-o fa-fw"></i> Horarios</a>
                             </li>
                         @endrole
                     </ul>
@@ -137,10 +131,6 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                @yield('description')
-                            </div>
-                            <!-- /.panel-heading -->
                             <div class="panel-body">
                                 @yield('content')
                             </div>

@@ -12,7 +12,7 @@ class Departamento extends Model
 
     public function campus()
     {
-    	return $this->belongsToMany('App\Campus', 'campus_departamentos');
+    	return $this->belongsToMany('App\Campus', 'campus_departamento');
     }
 
     public function materias()
@@ -27,11 +27,11 @@ class Departamento extends Model
 
     public function profesores()
     {
-        return $this->belongsToMany('App\Profesor','departamento_profesor');
+        return $this->belongsToMany('App\Profesor','departamento_profesor')->withPivot('semestre_id');
     }
 
     public function semestres()
     {
-        return $this->belongsToMany('App\Semestre', 'departamento_director');
+        return $this->belongsToMany('App\Semestre', 'departamento_director', 'departamento_id', 'semestre_id')->withPivot('director_id');
     }
 }
