@@ -13,6 +13,12 @@
 
 Route::group(['middleware' => 'auth'], function() {
 
+    Route::get('/403', function () {
+
+        return view('errors.403');
+
+    });
+
     Route::get('/home', 'HomeController@index')->name('/home');
 
     Route::get('/', function () {
